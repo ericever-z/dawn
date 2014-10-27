@@ -1,0 +1,12 @@
+.cell_arrow{
+    position: absolute;
+    display:inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    top:-10px;
+    left:380px;
+    border-top:1px solid #7e7e7e;
+    border-left:1px solid #7e7e7e;
+    transform: rotate(45deg);
+}

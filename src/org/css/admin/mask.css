@@ -1,0 +1,10 @@
+/* version-overlayer */
+.version-overlayer{position:absolute;left:0;top:0;width:100%;z-index:999;font-size:0;}
+.version-overlayer .over-bg{background:#000;height:100%;left:0;opacity:0.4;position:absolute;top:0;width:100%;z-index:999;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=40);}
+.version-overlayer .over-fg{position:relative;z-index:1000;background: transparent;left:0;top:0;}
+.version-overlayer .over-fg  img,.version-overlayer .over-fg .clz_btn{position:absolute;}
+.version-overlayer .clz_btn{display:block;width:50px;height:50px;line-height:50px;text-align:center;background:#fff;margin-bottom:1px;cursor:pointer;}
+.version-overlayer .clz_btn .icon{font-size: 30px;color: #333;}
+/*.version-overlayer .clz_btn .icon:hover{color:#fff;}*/
+.version-overRefer{width:1230px;margin:0 auto;text-align:center;}
+.version-overRefer-flag{margin:0 auto;width:1px;height:1px;font-size:1px;line-height:1px;}

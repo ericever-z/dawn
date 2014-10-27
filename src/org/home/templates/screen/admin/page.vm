@@ -1,0 +1,25 @@
+<!-- 主栏 开始 -->
+<span>
+	<span class="main">
+		<span class="set">
+			<span class="position">
+				<span class="tip">
+					<span class="label">当前页面为</span>
+					<span class="value">主菜单1 &gt; 菜单1.1 &gt; 菜单1.1.1</span>
+				</span>
+				<span class="url">
+					<a href="#nogo">点击此处修改页面URL</a>
+					<span class="input" style="display:none;"><input type="text" /></span><!-- 输入框，点击按钮后显示 -->
+				</span>
+			</span>
+			<span class="fn">
+				<a href="#nogo">修改页面URL</a>
+				<a href="#nogo">删除页面URL</a>
+			</span>
+		</span>
+		<!-- <iframe class="site" src="http://www.taobao.com" frameborder="0"></iframe> -->
+		<!-- 使用 iframe 内嵌网页 -->
+	</span>
+	<!-- 主栏 结束 -->
+</span>
+<!-- 站点预览区 结束 -->

@@ -1,0 +1,130 @@
+<!-- 设置菜单弹窗 开始 -->
+$rundata.setLayoutEnabled(false)
+<span class="mod-public-attr-menu e-dialog hide">
+	<header>
+        <h1 class="title">编辑小站菜单</h1>
+		<span title="关闭" class="dialog-close-btn">×</span>
+    </header>
+    ##<span class="c_popup" id="editMenu" >
+	<form id="J_SiteMenuForm" name="siteMenuForm" action="" method="post">
+	<input type="hidden" name="action" value="/SiteMenuAction"/>  
+	<input type="hidden" name="event_submit_doSaveSiteMenu" value="y"/>
+	<input type="hidden" name="menuListJson" id="J_menuListJson">
+	<input type="hidden" name="siteId" id="J_siteId" name="siteId" value="$!siteId">
+	
+    	<span class="wrapper">
+    	    <span class="content">
+    			<span class="c_editTree">
+    				<span class="tip">
+    					<span class="text">菜单名称（可添加3级）</span>
+    					<span class="fn"><a href="#nogo">帮助</a></span>
+    				</span>
+    				<span class="tree" id="J_MenuList">
+    					<ul id="onelev_ul_1">
+							#foreach($menu in $siteMenuList)
+    						<li class="lev-li" >
+    							<span class="content">
+    								<span class="fn">
+    									<a href="javascript:void(0)" class="e_icon edit" title="编辑菜单名" data-id= "$menu.id" parent-id="0" ></a>
+										<a href="javascript:void(0)" class="e_icon addBrother" title="增加同级菜单" data-id= "$menu.id" parent-id="0" ></a>
+    									<a href="javascript:void(0)" class="e_icon addChild" title="增加下一级菜单" data-id= "$menu.id" parent-id="0" ></a>
+    									<a href="javascript:void(0)" title="菜单上移" #if("$!menu.isUp" == "2") class="e_icon up dis" #else class="e_icon up" #end data-id= "$menu.id" parent-id="0" ></a>
+    									<a href="javascript:void(0)" title="菜单下移" #if("$!menu.isDown" == "2") class="e_icon down dis" #else class="e_icon down" #end data-id= "$menu.id" parent-id="0" ></a>
+    									<a href="javascript:void(0)" title="菜单升级" class="e_icon left dis" data-id= "$menu.id" parent-id="0" ></a>
+    									<a href="javascript:void(0)" title="菜单降级" class="e_icon right" data-id= "$menu.id" parent-id="0" ></a>
+    									<a href="javascript:void(0)" title="删除菜单" class="e_icon delete" data-id= "$menu.id" parent-id="0" ></a>
+    								</span>
+    								<span class="title menuName">
+    									<span class="text" >$menu.name</span>
+    								</span>
+									<span style="display: none;" class="menuNameEdit">
+										<input placeholder="请输入不超过8个字" data-id="$menu.id" id="one_title_$menu.sortIndex" name="menu_title" sort-index="$menu.sortIndex" parent-id="0" class="menu-title" type="text" value="$menu.name" >
+									</span>
+    							</span>
+								#set($twoMenuList = $menu.childMenuList)
+								#if($twoMenuList)
+    							<ul>
+									#foreach($twoMenu in $twoMenuList)
+    								<li class="lev-li">
+    									<span class="content">
+    										<span class="fn">
+    											<a href="javascript:void(0)" class="e_icon edit" title="编辑菜单名" data-id= "$twoMenu.id" parent-id="$twoMenu.parentId" ></a>
+    											<a href="javascript:void(0)" class="e_icon addBrother"  title="增加同级菜单" data-id= "$twoMenu.id" parent-id="$twoMenu.parentId" ></a>
+    											<a href="javascript:void(0)" class="e_icon addChild"  title="增加下一级菜单" data-id= "$twoMenu.id" parent-id="$twoMenu.parentId" ></a>
+    											<a href="javascript:void(0)" title="菜单上移" #if("$!twoMenu.isUp" == "2") class="e_icon up dis" #else class="e_icon up" #end data-id= "$twoMenu.id" parent-id="$twoMenu.parentId" ></a>
+    											<a href="javascript:void(0)" title="菜单下移" #if("$!twoMenu.isDown" == 2) class="e_icon down dis" #else class="e_icon down" #end  data-id= "$twoMenu.id" parent-id="$twoMenu.parentId" ></a>
+    											<a href="javascript:void(0)" title="菜单升级" class="e_icon left"  data-id= "$twoMenu.id" parent-id="$twoMenu.parentId" ></a>
+    											<a href="javascript:void(0)" title="菜单降级" class="e_icon right"  data-id= "$twoMenu.id" parent-id="$twoMenu.parentId" ></a>
+    											<a href="javascript:void(0)" title="删除菜单" class="e_icon delete"  data-id= "$twoMenu.id" parent-id="$twoMenu.parentId" ></a>
+    										</span>
+    										<span class="title menuName" >
+    											<span class="text">$twoMenu.name</span>
+    										</span>
+											<span style="display: none;" class="menuNameEdit">
+												<input placeholder="请输入不超过8个字" data-id="$twoMenu.id" name="twoMenu_title" parent-id="$twoMenu.parentId" class="menu-title" type="text" value="$twoMenu.name" >
+											</span>
+    									</span>
+										#set($threeMenuList = $twoMenu.childMenuList)
+										#if($threeMenuList)
+										<ul>
+											#foreach($threeMenu in $threeMenuList)
+    										<li class="lev-li">
+    											<span class="content">
+    												<span class="fn">
+    													<a href="javascript:void(0)" class="e_icon edit"  title="编辑菜单名" data-id= "$threeMenu.id" parent-id="$threeMenu.parentId" ></a>
+    													<a href="javascript:void(0)" class="e_icon addBrother"  title="增加同级菜单" data-id= "$threeMenu.id" parent-id="$threeMenu.parentId" ></a>
+    													<a href="javascript:void(0)" class="e_icon addChild dis" title="增加下一级菜单"  data-id= "$threeMenu.id" parent-id="$threeMenu.parentId" ></a>
+    													<a href="javascript:void(0)" title="菜单上移" #if("$!threeMenu.isUp" == "2") class="e_icon up dis" #else class="e_icon up" #end data-id= "$threeMenu.id" parent-id="$threeMenu.parentId" ></a>
+    													<a href="javascript:void(0)" title="菜单下移" #if("$!threeMenu.isDown" == "2") class="e_icon down dis" #else class="e_icon down" #end  data-id= "$threeMenu.id" parent-id="$threeMenu.parentId" ></a>
+    													<a href="javascript:void(0)" title="菜单升级" class="e_icon left"  data-id= "$threeMenu.id" parent-id="$threeMenu.parentId" ></a>
+    													<a href="javascript:void(0)" title="菜单降级" class="e_icon right dis"  data-id= "$threeMenu.id" parent-id="$threeMenu.parentId" ></a>
+    													<a href="javascript:void(0)" title="删除菜单" class="e_icon delete"  data-id= "$threeMenu.id" parent-id="$threeMenu.parentId" ></a>
+    												</span>
+    												<span class="title menuName">
+    													<span class="text">$threeMenu.name</span>
+    												</span>
+													<span style="display: none;" class="menuNameEdit">
+														<input placeholder="请输入不超过8个字" data-id="$threeMenu.id" name="threeMenu_title" parent-id="$threeMenu.parentId" class="menu-title" type="text" value="$threeMenu.name" >
+													</span>
+    											</span>
+    										</li>
+											#end
+    									</ul>
+										#end
+    								</li>
+									#end
+    							</ul>
+								#end
+    						</li>
+							#end
+    					</ul>
+    				</span>
+    			</span>
+    		</span>
+    		<footer class="footer">
+				<input type="button" id="J_BtnMenuSave" class="e-btn e-btn-primary" value="确认">
+				<input type="button" id="J_BtnMenuCancle" value="取 消" class="e-btn">
+    		</footer>
+			<!-- 设置菜单弹窗 结束 -->
+            <span id="J_MenuMask" class="version-overlayer" style="height: 405.5px; width: 652.5;display:none;">
+            	<span class="over-bg"></span>
+            	<span class="over-fg" id="menuMask" style="display:block">
+            		<img src="/images/mask/updateMenuName.png" class="guideHork-0" width="180.33px" height="130px" style="left: 0px; top: 125px;">
+            		<img src="/images/mask/addMenu.png" class="guideHork-1" width="250.66px" height="110px" style="left: 350px; top: 10px;">
+            		<img src="/images/mask/mobileMenu.png" class="guideHork-2" width="250.33px" height="110px" style="left: 250px; top: 150px;" id="inMenuPage">
+            	</span>
+            </span>
+    	</span>
+		</form>
+    ##</span>
+	
+</span>
+<style type="text/css">
+	.e-dialog{
+		width:600px;
+	}
+
+</style>
+<script src="https://s.tbcdn.cn/apps/tdata/js/lib/beast/merge.js"></script>
+<script src="/js/home/admin/menu.js" language="javascript" charset="gb2312"></script>
+<link href="/css/admin/mask.css" rel="stylesheet"/>

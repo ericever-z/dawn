@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+.paginator_btn:link,.paginator_btn:active,.paginator_btn:focus,.paginator_btn:visited
+	{
+	text-decoration: none;
+}
+
+.paginator_btn {
+	margin-left: 10px;
+}
+
+.paginator_first {
+	margin-left: auto;
+}

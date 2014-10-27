@@ -1,0 +1,15 @@
+<span class="top_query">
+    <span>第<label class="red">$!pageInfoCombination.pageIndex</label>页/共<label class="red">$!pageInfoCombination.pageCount</label>页</span>
+    
+    #if($!pageInfoCombination.pageIndex>1)
+    	#set($pageup = $!{pageInfoCombination.pageIndex} - 1 )
+    	<a class="btn btn-default btn-small" href="javascript:void(0)" onclick="renderPage('$!pageup')">上一页</a>
+    #end
+    #if($!pageInfoCombination.pageIndex < $!pageInfoCombination.pageCount)
+    	#set($pagedown = $!{pageInfoCombination.pageIndex} + 1 )
+    	<a class="btn btn-default btn-small" href="javascript:void(0)" onclick="renderPage('$!pagedown')">下一页</a>
+    #end
+    <span>第</span>
+    <input type="text" value="$!pageInfoCombination.pageIndex" id="J_PAGEID" class="e-input-box petty" name="pageid" size="3">
+	<span>页</span> <input type="submit" value="确定" class="btn btn-default btn-small" />
+</span>

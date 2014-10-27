@@ -1,0 +1,68 @@
+<!-- 设置LOGO弹窗 开始 -->
+$rundata.setLayoutEnabled(false)
+<style>
+	.required_tip{
+	    color:red;
+	}
+	input[type="radio"] {
+		vertical-align: text-bottom;
+	}
+	#J_SiteLogoForm .c_checkList .inactive {
+		color:#999999;
+	}
+</style>
+$csrfToken.hiddenField
+<span class="mod-public-attr e-dialog hide">
+	<header>
+        <h1 class="title">设置小站LOGO</h1>
+		<span title="关闭" class="dialog-close-btn">×</span>
+    </header>
+	#set($group = $form.siteLogoForm.defaultInstance)
+	<form id="J_SiteLogoForm" name="siteLogoForm" action="" method="post" enctype="multipart/form-data">
+	 
+	<input type="hidden" name="action" value="/SiteAction"/>  
+	<input type="hidden" name="event_submit_doUpdateSiteLogo" value="y"/>
+	<input type="hidden" id="J_SiteId" name="siteId" value="$!site.id"/>
+	<input type="hidden" id="J_SiteLogoUrl" name="$!group.logoUrl.key" value="$!site.LogoUrl"/>
+	<input type="hidden" id="logoType" name="$!group.logoType.key" value=""/>
+	<span id="content">
+	<span class="wrapper">
+		<span class="content">
+			<span class="c_checkList">
+				<ul>
+					<li #if("$!site.logoUrl"=="") class="inactive" #end>
+						<label><input name="type" value="img" type="radio" #if("$!site.logoUrl"!="") checked="checked" #end/>上传自定义图片作为站点LOGO<span class="e_minor">（不大于120*40px，且需为透明背景的 png 图片）</span></label>
+						<span class="input">
+							#if("$!site.logoUrl"!="")
+							##<span class="demo">
+								##<a href="$!site.LogoUrl" target="_blank" id="logoLocation">查看</a>
+								##<img src="$!site.logoUrl" alt="logo" /><!-- 120×40 logo 图片一张 -->
+							##</span>
+							#end
+							<span >
+								<span>上传图片</span>
+								<input type="file" id="J_logo_file" name="$!group.siteLogo.key"/>
+							</span>
+						</span>
+					</li>
+					<li #if("$!site.logoUrl"!="") class="inactive" #end>
+						<label><input name="type" value="txt" type="radio" #if("$!site.logoUrl"=="" && "$!site.title"!="") checked="checked" #end/>直接输入文字生成LOGO<span class="e_minor">（最多8个字符）</span></label>
+						<span class="input">
+							<span class="label">站点名称：</span>
+							<span class="value"><input type="text" #if("$!site.logoUrl"!="") readonly="readonly" #end  placeholder="请输入，如：淘宝旅行" id="J_logo_title" name="$!group.title.key" value="$!site.title" class="updateTitle"/></span>
+						</span>
+					</li>
+				</ul>
+			</span>
+		</span>
+		<footer class="footer">
+			<input type="button" id="J_BtnSave" class="e-btn e-btn-primary" value="确认">
+			<input type="button" id="J_BtnCancle" value="取 消" class="e-btn">
+    	</footer>
+	</span>
+	</span>
+	</form>
+</span>
+
+
+<!-- 设置LOGO弹窗 结束 -->

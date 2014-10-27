@@ -1,0 +1,285 @@
+<!-- 编辑页面头（可视化建站页面头）即  xx欢迎来到淘数据  淘数据首页，开放平台首页，开放平台百科 -->
+<!-- 功能菜单区 开始 -->
+<style>
+	.addlogo{
+	display: none;
+position: absolute;
+left: 0;
+top: 0;
+width: 118px;
+height: 38px;
+line-height: 38px;
+text-align: center;
+border: 1px solid #ccc;
+background: #eee;
+}
+</style>
+<span class="m_menu">
+	<span class="main">
+		<span class="logo"></span>
+		<span class="list">
+			<ul>
+				<li><a href="javascript:void(0)" id="setStyle">小站皮肤</a></li>
+				<li>
+					<a href="javascript:void(0)">设置</a>
+					<span class="c_subnav">
+						<ul>
+							#if($!isReffer == 1) 
+								<li><a href="javascript:void(0)" data-id="$!siteId" id="J_mng_admin" >小站管理员</a></li>
+								<li><a href="javascript:void(0)" data-id="$!siteId" id="J_deliver_sa">转交</a></li>
+								<li><a href="javascript:void(0)" data-id="$!siteId" id="J_update_name">更改小站名称</a></li>
+							#else
+								<li><a href="javascript:void(0)" class="disabled" >小站管理员</a></li>
+								<li><a href="javascript:void(0)" class="disabled">转交</a></li>
+								<li><a href="javascript:void(0)" class="disabled">更改小站名称</a></li>
+							#end
+						</ul>
+					</span>
+				</li>
+				##<li><a href="javascript:void(0)">数据清单</a></li>
+				<li>
+					<a href="javascript:void(0)">帮助中心</a>
+					<span class="c_subnav">
+						<ul>
+							##<li><a href="#nogo">瞅瞅他人作品</a></li>
+							##<li><a href="#nogo">视频演示</a></li>
+							<li><a href="http://designboard.alibaba-inc.com/detail/40312" target="_blank">建站帮助</a></li>
+						</ul>
+					</span>
+				</li>
+			</ul>
+		</span>
+		<span class="fn">
+			<a  class="e_button" href="/portal/site.htm?siteId=$!siteId" target="_blank">预览</a>
+		</span>
+	</span>
+	<span class="sub">
+		<span class="style">
+			<ul id="styles">
+				<li #if("$!site.style" == "base") class="on" #end style="background: url(../images/orange.png) no-repeat;">
+					<a href="javascript:void(0)" style-code = "base" data-id="$!siteId"><span>甜橙系</span></a>
+					<span class="border"></span>
+				</li>
+				<li #if("$!site.style" == "red") class="on" #end style="background: url(../images/red.png) no-repeat;">
+					<a href="javascript:void(0)" style-code = "red" data-id="$!siteId"><span>番茄红</span></a>
+					<span class="border"></span>
+				</li>
+				<li #if("$!site.style" == "blue") class="on" #end style="background: url(../images/blue.png) no-repeat;">
+					<a href="javascript:void(0)" style-code = "blue" data-id="$!siteId"><span>天空蓝</span></a>
+					<span class="border"></span>
+				</li>
+				<li #if("$!site.style" == "green") class="on" #end style="background: url(../images/green.png) no-repeat;">
+					<a href="javascript:void(0)" style-code = "green" data-id="$!siteId"><span>青苹果</span></a>
+					<span class="border"></span>
+				</li>
+				<li #if("$!site.style" == "purple") class="on" #end style="background: url(../images/purple.png) no-repeat;">
+					<a href="javascript:void(0)" style-code = "purple" data-id="$!siteId"><span>梦幻紫</span></a>
+					<span class="border"></span>
+				</li>
+				<li #if("$!site.style" == "obred") class="on" #end style="background: url(../images/obred.png) no-repeat;">
+					<a href="javascript:void(0)" style-code = "obred" data-id="$!siteId"><span>白底红字</span></a>
+					<span class="border"></span>
+				</li>
+			</ul>
+			<!-- 页面调试用JS，点击各个颜色切换按钮进行测试
+			请 JS 开发人员参考并重写 -->
+		</span>
+		<a href="javascript:void(0)" class="e_close" id="cancleSetStyle"></a>
+		<!-- 调试用JS，站点风格的选项显示后，点击右上角“×”测试，请 JS 开发人员参考并重写 -->
+	</span>
+</span>
+<!-- 功能菜单区 结束 -->
+<!-- 站点预览区 开始 -->
+<input type="hidden" id="siteId" name="siteId" value="$!site.id"/>
+<input type="hidden" id="style" name="style" value="$!site.style"/>
+<input type="hidden" id="sourceUrl" name="sourceUrl" value="$!configUrl"/>
+<input type="hidden" id="displayNum" name="displayNum" value="$!displayNum"/>
+<span class="m_site" id="J_SiteConfig">
+	<!-- 头部 开始 -->
+	<span class="header">
+		
+		#if("$!site.LogoUrl" != "")
+			<!-- 微软雅黑26号 <font class="logo" face="微软雅黑" size="26" ></font>-->
+				<span class="logo" >
+					<img src="$!site.LogoUrl" alt="logo" /><!-- 120×40 logo 图片一张 -->
+					<a href="javascript:void(0)" class="edit" id="J_updateLogo" >点击设置LOGO</a>
+				</span>
+		#elseif("$!site.title" != "")
+				<span class="logo" >
+					<span >$!site.title</span>
+					<a href="javascript:void(0)" class="edit" id="J_updateLogo" >点击设置LOGO</a>
+				</span>
+				<!-- 页面调试用JS，点击添加LOGO进行测试
+				请 JS 开发人员参考并重写 -->
+		#else
+			<span class="logo" style="background: #eee;" id="J_updateLogo">点击设置LOGO</span>
+				
+		#end
+		
+	
+		<span class="menu">
+			<ul class="menuNavigation" >
+				#foreach($menu in $siteMenuList)
+				#if($velocityCount < 5)
+					<li #if($velocityCount == 1) class="menu on" #else class="menu" #end><a href="javascript:void(0)" data-id="$!menu.id" page-id="$!menu.pageId" class="e-loadChildMenu" page-url="$!menu.pageUrl" path-name="$!menu.pathName" open-type="$!menu.pageOpenType">$menu.name</a></li>
+				#end
+				#end
+				
+			</ul>
+		</span>
+		#if($siteMenuList.size() >= 5)
+		<span class="more">
+			<a href="">更多<span class="ico"></span></a>
+			<span class="c_subnav">
+				<ul class="moreNavigation" >
+					#foreach($menu in $siteMenuList)
+					#if($velocityCount >=5)
+						<li class="menu"><a href="javascript:void(0)" data-id="$!menu.id" parent-id="0" page-id="$!menu.pageId" class="e-loadChildMenu" page-url="$!menu.pageUrl" path-name="$!menu.pathName" open-type="$!menu.pageOpenType">$menu.name</a></li>
+					#end
+					#end
+				</ul>
+			</span>
+		</span>
+		#end
+		<span class="info">
+			<span class="hi">你好，$!user.nick！</span>
+			<a href="https://login-test.alibaba-inc.com/ssoLogin.htm?APP_NAME=dtdawn&BACK_URL=http://$!dawnDomain/index.htm&CANCEL_CERT=true" class="exit">[退出]</a>
+		</span>
+		<span class="edit_menu">
+			<a href="javascript:void(0)" class="e_button edit updateMenu" data-id="$!siteId" id="J_updateMenu">编辑菜单</a>
+		</span>
+		<!-- 页面调试用JS，点击编辑菜单进行测试
+		请 JS 开发人员参考并重写 -->
+	</span>
+	<!-- 头部 结束 -->
+	<span class='container-wrapper'>
+	<!-- 侧栏菜单 开始 -->
+	<span class="menu-list">
+	<!--默认展示第一个-->
+	#foreach($menu in $siteMenuList)
+	#set($onenum = $velocityCount) 
+	#set($twoMenuList = $menu.childMenuList)
+	#if($twoMenuList)
+		
+    	 
+    	<span class="side" #if($onenum != 1)style="display:none"#end id="twolevel_$!menu.id">
+    		<span class="content">
+    			<ul>
+    				#foreach($twoMenu in $twoMenuList)
+					#set($twonum = $velocityCount)
+    				<li #if("$!leafMenuId" == "$!twoMenu.id") class="menu on" #else class="menu" #end>
+    					<a href="javascript:void(0)" class="text menu_head" title="$!twoMenu.name" id="twoMenu_$!twoMenu.parentId_$!twoMenu.id" data-id="$!twoMenu.id" parent-id="$!twoMenu.parentId" page-id="$!twoMenu.pageId" page-url="$!twoMenu.pageUrl" path-name="$!twoMenu.pathName" open-type="$!twoMenu.pageOpenType">$!twoMenu.name</a>
+    					#set($threeMenuList = $twoMenu.childMenuList)
+    					#if($threeMenuList)
+    					<ul class='menu_body' #if($onenum == 1 && $twonum == 1) #if($!isExpand == 1)style="display: block;"#end #end>
+    						#foreach($threeMenu in $threeMenuList)
+    						#set($threenum = $velocityCount)	
+    						<li #if("$!leafMenuId" == "$!threeMenu.id") class="menu on" #else class="menu" #end><a href="javascript:void(0)" class="text lastMenu" title="$!threeMenu.name" id="threeMenu_$!threeMenu.parentId_$!threeMenu.id" data-id="$!threeMenu.id" parent-id="$!threeMenu.parentId" page-id="$!threeMenu.pageId" page-url="$!threeMenu.pageUrl" path-name="$!threeMenu.pathName" open-type="$!threeMenu.pageOpenType">$!threeMenu.name</a></li>
+    						#end
+    					</ul>
+    					#end
+    				</li>
+    				#end
+    			</ul>
+    		</span>
+    		<!-- 页面调试用JS，点击编辑菜单进行测试
+    		请 JS 开发人员参考并重写 -->
+    	</span>
+	
+	#end
+	#end
+	</span>
+	<!--第一次默认为第一个叶子节点信息-->
+	<span id="main" class="main" #if($!hasChild == "0") style="left:0px" #end ng-view>
+		<span class="url-config-label">
+			当前页面：<span id="menuPath">$!leafPathName</span>
+		</span>
+		<span class = "url-config-wrapper">
+			<span class="input-pre-append">
+				<span class="input-prepend">
+					<a href="javascript:void(0)" class="iconfont del" id="deleteUrl">&#xf0002;</a>
+				</span>
+				<span class="readonly-wrapper">
+					<input class="url-config-input" id="pageUrl"  style="color:#999999" type="text" page-id="$!leafPageId" menu-id="$!leafMenuId" #if("$!configUrl" == "") placeholder="请输入URL链接嵌入到小站中（第三方数据产品页面链接，必须去头去尾）" #else value="$!configUrl" #end/>
+					<span class="readonly" id="readonly"></span>
+				</span>
+				<span class="input-append">
+					<a href="javascript:void(0)" class="iconfont lock" id="lock_input">&#xf00c9</a>
+					<a href="javascript:void(0)" class="iconfont unlock" id="unlock_input">&#xf0036</a>
+					<a href="javascript:void(0)" class="iconfont save" id="save_url">&#xe733</a>
+				</span>
+			</span>
+			<span class="checkbox">
+				<input type='checkbox' id="open-target" #if("$!configOpenType" == "1") unchecked #elseif("$!configOpenType" == "2") checked #end>在新窗口打开</input>
+			</span>
+		</span>
+		<span class="note-wrapper">
+			<span class="instruction">
+			说明：</br>
+			1、小站暂时只支持展现其他产品页面数据内容（如ADM报表、喵日报、IDATA门户、快门七巧板页面等）</br>
+			2、请将其他数据产品的页面地址嵌入小站中，必须去头去尾，否则风格将不统一，影响美观</br>
+			</span>
+			<span class="reference">
+			参考：</br>
+			去头去尾的链接参考，更多链接联系各自的产品PD</br>
+			淘数据ADM报表：<span> http://dw.taobao.ali.com/mstr/report_view.htm?menuId=12345</span>    （改成你的报表id）       </br>
+			喵日报：<span> http://bi.tmall.com/report/naked?target=aaa_bbb_ccc</span>       （改成你的喵日报）</br>
+			业务线门户：<span> http://shuju.taobao.ali.com/idata/bu/index.htm?p=abc</span> （改成你的业务线域名）</br>
+			孔明灯日报：<span> http://bi.taobao.org/spreadsheet.htm?readonly=true&dsmid=12345 </span> （改成你的孔明灯日报id）</br>
+			快门报表：<span> http://shutter.alibaba-inc.com/report/dataPreview.htm?nav=none&reportId=12345 </span>  （改成你的快门报表id）</br>
+			快门七巧板页面：<span> http://shutter.alibaba-inc.com/page/pagePreview.htm?nav=none&id=123 </span>   （改成你的快门七巧板页面id）</br>
+			</br>
+			更多参考请看建站帮助：<a href="http://designboard.alibaba-inc.com/detail/40312" target="_blank"><u>http://designboard.alibaba-inc.com/detail/40312</u></a>
+			</span>
+		</span>
+		<span class="set" style="display:none">
+			<span class="position">
+				<span class="tip" id="pageInfo">
+					<span class="label">当前页面为</span>
+					<span class="value" id="page_url_value">$!configUrl</span>
+				</span>
+				<span class="url">
+					<a href="javascript:void(0)" id="urlLocation" >点击此处修改页面URL</a>
+					<span class="input" style="display:none;" id="editUrl" ><input type="text" id="pageUrl" page-id="$!leafPageId" menu-id="$!leafMenuId" /></span><!-- 输入框，点击按钮后显示 -->
+				</span>
+			</span>
+			<span class="fn">
+				<a href="javascript:void(0)" id="updateUrl" >修改页面URL</a>
+				<a href="javascript:void(0)" id="deleteUrl" >删除页面URL</a>
+			</span>
+		</span>
+		<!--<iframe class="site" src="http://www.taobao.com" frameborder="0"></iframe>-->
+		<!-- 使用 iframe 内嵌网页 -->
+	</span>
+	
+	</span>
+	<!-- 主栏 结束 -->
+<!-- 站点预览区 结束 -->
+</span>
+<script src="/js/home/admin/public.js"></script>
+<link href="/css/iconfonts/admin/iconfont.css" rel="stylesheet"/>
+<link href="/css/admin/siteConfig.css" rel="stylesheet"/>
+<link href="/css/admin/mask.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/js/jqueryui/autocomplete/css/base/jquery-ui.min.css"/>
+<script type="text/javascript" src="/js/jqueryui/autocomplete/jquery-ui.custom.js"></script>
+<script type="text/javascript" src="/js/home/site-admin-mng.js"></script>
+<script type="text/javascript" src="/js/home/site-deliver.js"></script>
+<script type="text/javascript" src="/js/home/admin/site-logo.js"></script>
+<script type="text/javascript" src="/js/home/admin/site-menu.js"></script>
+<script type="text/javascript" src="/js/home/admin/site-name.js"></script>
+<span class="version-overRefer"><span id="J_VersionReferFlag" class="version-overRefer-flag"></span></span>
+<span id="J_VersionOverlayer" class="version-overlayer" style="height: 100%; width: 100%;display:none;">
+	<span class="over-bg"></span>
+	<span class="over-fg" id="oneMask" >
+		<img src="/images/mask/addLogo.png" class="guideHork-0" width="248.66px" height="185.33px" style="left: 80px; top: 80px;">
+		<img src="/images/mask/twoNavigation.png" class="guideHork-1" width="249.33px" height="163.33px" style="left: 125px; top: 400px;">
+		<img src="/images/mask/threeMenu.png" class="guideHork-2" width="252.66px" height="122px" style="right: 150px; top: 80px;">
+		<img src="/images/mask/page.png" class="guideHork-3" width="280px" height="170.66px" style="left: 400px; top: 180px;">
+		<img src="/images/mask/next.png" class="guideHork-4" width="131.33px" height="44.66px" style="left: 850px; top: 450px;" id="maskNext" >
+	</span>
+	<span class="over-fg" id="twoMask" style="display:none">
+		<img src="/images/mask/style.png" class="guideHork-5" width="195.33px" height="152.66px" style="left: 80px; top: 30px;">
+		<img src="/images/mask/manger.png" class="guideHork-6" width="250.66px" height="158.66px" style="left: 280px; top: 30px;">
+		<img src="/images/mask/preview.png" class="guideHork-7" width="302.66px" height="171.33px" style="right: 50px; top: 30px;" id="closeMask">
+	</span>
+</span>

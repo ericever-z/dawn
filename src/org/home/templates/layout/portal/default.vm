@@ -1,0 +1,38 @@
+<!--主页面，即用户打开页面，加载control 中 footer.vm,header.vm --><!-- 建站编辑页面  左侧菜单 -->
+<!DOCTYPE html> 
+<!--[if lt IE 7 ]> <html class="ie ie6"> <![endif]--> 
+<!--[if IE 7 ]>    <html class="ie ie7"> <![endif]--> 
+<!--[if IE 8 ]>    <html class="ie ie8"> <![endif]--> 
+<!--[if gte IE 9 ]>    <html class="ie"> <![endif]--> 
+<!--[if !(IE)]><!--> <html> <!--<![endif]--> 
+<head>
+	<meta charset="utf-8"/> 
+    <title>阿里数据平台-数据小站</title>
+    <!--[if IE]>
+        <script src="https://a.tbcdn.cn/apps/tdata/js/base/html5-reset.js"></script>
+    <![endif]-->
+    <link id="css" href="/css/base.css" rel="stylesheet" />
+	##<link href="/css/blue.css" rel="stylesheet" />
+    <!--<link href="/css/green.css" rel="stylesheet" />
+    <link href="/css/obred.css" rel="stylesheet" />
+    <link href="/css/purple.css" rel="stylesheet" />
+	<link href="/css/red.css" rel="stylesheet" />-->
+	<link href="/css/global/scrollbar-mac.css" rel="stylesheet"/>
+	<link href="https://s.tbcdn.cn/apps/tdata/css/global/general.css" rel="stylesheet" />
+	<link href="http://a.tbcdn.cn/apps/tdata/css/lib/pixie/dialog.css" rel="stylesheet" />
+    <link href="http://a.tbcdn.cn/apps/tdata/css/lib/pixie/input-box.css" rel="stylesheet" />
+    <link href="http://a.tbcdn.cn/apps/tdata/css/lib/pixie/button.css" rel="stylesheet" />
+    <link href="http://a.tbcdn.cn/apps/tdata/css/lib/pixie/table.css" rel="stylesheet" />
+	<link href="http://a.tbcdn.cn/apps/tdata/css/lib/pixie/tab.css" rel="stylesheet" />
+	<script type="text/javascript" src="http://a.tbcdn.cn/apps/tdata/js/lib/beast/merge.js"></script>
+	
+</head>
+<body style="background:#e8e8e8">
+
+<span id="J_Container">
+	$screen_placeholder
+</span>
+</body>
+</html>
+<script src="https://s.tbcdn.cn/apps/tdata/js/lib/beast/merge.js"></script>
+	<!-- 侧栏菜单 结束 -->

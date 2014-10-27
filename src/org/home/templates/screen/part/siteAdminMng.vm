@@ -1,0 +1,42 @@
+<span class="mod-public-attr e-dialog hide">
+	<header>
+		<h1 class="title">设置站点管理员</h1>
+		<span title="关闭" class="dialog-close-btn">×</span>
+	</header>
+	<form id="J_SiteAdminForm" name="siteAdminForm" action="" method="post">
+	<input type="hidden" name="action" value="/SiteAction"/>  
+	<input type="hidden" name="event_submit_doSaveSiteManager" value="y"/>
+	<input type="hidden" id="workIds" name="workIds" value=""/>
+	<input type="hidden" name="siteId" id="J_siteId" name="siteId" value="$!siteId">
+	<span id="content">
+		<span class="wrapper">
+			<span class="wrapper_1">
+				<span class="dialog-label">新增管理员：</span><input type="text" class="user_auto" placeholder="输入花名/拼音，选中后添加" style="width:150px;"/>
+			</span>
+			<span class="wrapper_2">
+				##<span class="dialog-label">管理员清单：</span>
+				<span class ="admin-list-wrapper">
+					<span class="admin_list">
+						<span class="list-wrapper dummy" data-id="" style="display:none;">
+							<span class="name-label"></span>
+							<span class="btn-add del">X</span>
+						</span>
+						#foreach($mng in $siteMngList)
+						<span class="list-wrapper" data-id="$!{mng.workId}">
+							<span class="name-label">$mng.nick</span>
+							<span class="btn-add del">X</span>
+						</span>
+						#end
+					</span>
+				</span>
+			</span>
+			
+			<span class="note"><span class="red">注</span>：管理员可以编辑修改小站所有内容，但不能“转交”也不能“维护管理员”清单</span>
+			<footer class="footer">
+				<input type="button" id="J_BtnSave" class="e-btn e-btn-primary" value="确认">
+				<input type="button" id="J_BtnCancle" value="取 消" class="e-btn">
+			</footer>
+		</span>
+	</span>
+	</form>
+</span>

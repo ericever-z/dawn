@@ -1,0 +1,135 @@
+$rundata.setLayoutEnabled(false)
+<!DOCTYPE html> 
+<!--[if lt IE 7 ]> <html class="ie ie6"> <![endif]--> 
+<!--[if IE 7 ]>    <html class="ie ie7"> <![endif]--> 
+<!--[if IE 8 ]>    <html class="ie ie8"> <![endif]--> 
+<!--[if gte IE 9 ]>    <html class="ie"> <![endif]--> 
+<!--[if !(IE)]><!--> <html> <!--<![endif]--> 
+<head>
+	<meta charset="utf-8"/> 
+    <title>阿里数据平台-数据小站</title>
+    <!--[if IE]>
+        <script src="https://a.tbcdn.cn/apps/tdata/js/base/html5-reset.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" type="text/css" href="/css/global/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/admin/siteList.css"/>
+	<link href="/css/admin/dialog.css" rel="stylesheet" />
+</head>
+<body style="background:#fff">
+<form action="/admin/siteList.htm" method="post" id = "searchForm">
+	<input type="hidden" id="tabName" name="tabName" value="$!tabName"/>
+	<input type="hidden" id="accessOrder" name="accessOrder" value="$!accessOrder"/>
+	<input type="hidden" id="gmtOrder" name="gmtOrder" value="$!gmtOrder"/>
+	
+	<span class="doc-header">
+		<span class="doc-header-title">我是开发者</span>
+
+		<span class="doc-search-group">
+			<input type="text" name="siteName" placeHolder="关键字" class="search-input" value='$!siteName'/>
+			<button class="btn btn-default btn-addon" id="J_QueryBtn">搜索</button>
+		</span>
+
+		<span class="doc-header-create" style="float:right;margin-right:100px;">
+			<a class ="btn btn-default" id="J_AddData" href="javascript:void(0)">+新建小站</a>
+		</span>
+	</span>
+	
+	<ul class="nav nav-tabs" role="tablist" id="tabSite" style="margin: 10px 30px 0px 30px;">
+		<li #if("$!tabName" == "allSite") #else class="active" #end><a href="#J_Result" role="tab" data-toggle="tab" tab-name="mySite">我的小站</a></li>
+		#if("$!isManager" == "1")
+			<li #if("$!tabName" == "allSite") class="active" #end><a href="#J_AllSite" role="tab" data-toggle="tab" tab-name="allSite">所有</a></li>
+		#end
+		
+		<span class="doc-order-group">
+			<span class="list-order">
+				<span class="type-order">修改时间：</span>
+				<span class="up-order">
+					<a href="javascript:void(0)" class="iconfont noorder #if($!gmtOrder == 2) order #end" id="gmt-up">&#xf0005</a>
+				</span>
+				<span class="down-order">
+					<a href="javascript:void(0)" class="iconfont noorder  #if($!gmtOrder == 1) order #end" id="gmt-down">&#xf0004</a>
+				</span>
+			</span>
+			<span class="list-order">
+				<span class="type-order">访问次数：</span>
+				<span class="up-order">
+					<a href="javascript:void(0)" class="iconfont noorder  #if($!accessOrder == 2) order #end" id="access-up">&#xf0005</a>
+				</span>
+				<span class="down-order">
+					<a href="javascript:void(0)" class="iconfont noorder  #if($!accessOrder == 1) order #end" id="access-down">&#xf0004</a>
+				</span>
+			</span>
+		</span>
+	</ul>
+	
+	<span>
+		#if("$!noData" == "1")
+		<span style="text-align:center;padding:40px 0;border:1px solid #d5d5d5;background:#fafafa;border-radius:3px;margin-top:15px;">
+			抱歉，没有找到符合条件的结果~
+		</span>
+		#else
+		<span class="doc-search-result tab-content" >
+			<span #if("$!tabName" == "allSite") class="tab-pane" #else class="tab-pane active" #end   id="J_Result">
+    		    <span class="station-panels auto_margin_child tab-pane active clearfix" id="doc-container-panels">
+    				#foreach($it in $listData)
+    				 <span class="station-panel" data-id="$it.id" style="visibility: hidden;">
+    		            <span class="doc-left-panel" >
+    		                <span class="station-name"> <a href="/portal/site.htm?siteId=$it.id" target="_blank"> $it.name </a></span>
+    		                <span class="station-item">所属类目: </span>
+    		                <span class="station-item">Owner：</span>
+    		                <span class="station-item">修改人：$!it.modifyUser </span>
+    		                <span class="station-item">修改时间：$!dateUtil.convertDateToString($!it.gmtModify,'yyyy-MM-dd')</span>
+    		                <span class="station-item">小站域名编码： $it.code</span>
+    		            </span>
+    		            <span class="doc-options">
+    		                <a class="button button-large perview" href="/portal/site.htm?siteId=$it.id" target="_blank">预览</a>
+    		                <a class="button button-large uv" href="javascript:void(0)">访问次数:</br>#if($!it.accessCount)$!it.accessCount#else 0 #end</a>
+    		                <a class="button button-large" href="/admin/siteConfig.htm?siteId=$it.id" target="_blank" >编辑</a>
+    		                <a class="button button-large e-delete" href="javascript:void(0)" data-id="$!it.id" >删除</a>
+    		            </span>
+    		        </span>
+    				#end
+    			</span>
+			</span>
+			<span #if("$!tabName" == "allSite") class="tab-pane active" #else class="tab-pane" #end  id="J_AllSite">
+    			<span class="station-panels auto_margin_child tab-pane active clearfix" id="doc-container-panels">
+    				#foreach($it in $allSiteList)
+    				 <span class="station-panel" data-id="$it.id" style="visibility: hidden;">
+    		            <span class="doc-left-panel" >
+    		                <span class="station-name"> <a href="/portal/site.htm?siteId=$it.id" target="_blank"> $it.name </a></span>
+    		                <span class="station-item">所属类目: </span>
+    		                <span class="station-item">Owner：</span>
+    		                <span class="station-item">修改人：$!it.modifyUser</span>
+    		                <span class="station-item">修改时间：$!dateUtil.convertDateToString($!it.gmtModify,'yyyy-MM-dd')</span>
+    		                <span class="station-item">小站域名编码： $it.code</span>
+    		            </span>
+    		            <span class="doc-options">
+    		                <a class="button button-large perview" href="/portal/site.htm?siteId=$it.id" target="_blank">预览</a>
+    		                <a class="button button-large uv" href="javascript:void(0)">访问次数:</br>#if($!it.accessCount)$!it.accessCount#else 0 #end</a>
+    		                <a class="button button-large" href="/admin/siteConfig.htm?siteId=$it.id" target="_blank" >编辑</a>
+    		                <a class="button button-large e-delete" href="javascript:void(0)" data-id="$!it.id" >删除</a>
+    		            </span>
+    		        </span>
+    				#end
+				</span>
+    		</span>
+			<span class="e-pager">
+				#parse("/screen/pub/pageCombination.vm")
+			</span>
+		</span>
+		#end
+	</span>
+</form>
+
+<span class="e-dialog" id="J_datasource_dialog" style="display:none;width:900px;">
+    <iframe scrolling="no" frameborder="0" id="J_dialog_frame" width="900" height="720"></iframe>
+</span>
+<link href="/css/iconfonts/admin/iconfont.css" rel="stylesheet"/>
+<script src="/js/jquery/jquery.js"></script>
+<script src="/js/home/admin/auto_margin_child.js"></script>
+<script src="https://s.tbcdn.cn/apps/tdata/js/lib/beast/merge.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>
+<script src="/js/home/admin/siteList.js"></script>
+</body>
+</html>
+

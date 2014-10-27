@@ -1,0 +1,4 @@
+.dw_ctrl_menu_security_attr{line-height:23px;}
+.dw_ctrl_menu_security_attr li{ padding:5px 0;}
+.dw_ctrl_menu_security_attr li label{margin-right:8px;display:inline-block;}
+.dw_ctrl_menu_security_attr .required_mark {color:red;}

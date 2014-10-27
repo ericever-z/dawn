@@ -1,0 +1,42 @@
+$rundata.setLayoutEnabled(false)
+<span class="mod-public-attr e-dialog" style="width:600px;font-size:12px">
+	<header>
+		#if("$!isUpdate" == "1")
+			<span class="title">修改小站</span>
+		#else
+			<span class="title">新增小站</span>
+		#end
+        <span class="info"></span>
+		<span title="关闭" class="dialog-close-btn">×</span>
+    </header>
+	<form id="J_AddSiteForm" action="/admin/siteList.htm" method="post">
+	<input type="hidden" name="action" value="/SiteAction"/>
+	#if("$!isUpdate" == "1")
+		<input type="hidden" name="event_submit_doUpdateSite" value="y"/>
+	#else
+		<input type="hidden" name="event_submit_doAddSite" value="y"/>
+	#end
+    <input type="hidden" name="siteId" value="$!site.id"/>
+	<span id="content" >
+		<table class="pub-attr-table" style="margin:0 auto">
+    		<tr>
+    			<td class="col1" style="width:200px"><span class="red">*</span>请输入小站中文名称(最多8个字符)</td>
+    			<td>
+    				<input type="text" id="siteName" class="e-input-box " name="siteName" value="$!site.name" />
+				</td>
+    		</tr>
+    		<tr>
+    			<td class="col1"><span class="red">*</span>请输入小站域名编码(a～z小写字母)</td>
+    			<td>
+    				<input type="text" id="code" name="code" class="e-input-box"  value="$!site.code"/>
+    			</td>
+    		</tr>
+		</table>
+		
+		<footer class="footer">
+			<input type="button" id="J_BtnSave" class="btn btn-primary smaller" value="确认">
+			<input type="button" id="J_BtnCancle" value="取 消" class="btn btn-default smaller">
+    	</footer>
+	</span>
+	</form>
+</span>

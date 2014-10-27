@@ -1,0 +1,16 @@
+@import url("base.css");
+.m_site .header { background:#28ba8f;}
+.m_site .header .more>a:hover { background:#22aa82;}
+.m_site .header .menu li a:hover { background:#22aa82;}
+.m_site .header .menu li a:active { background:#1c8e6c;}
+.m_site .header .menu .on a { background:#22aa82;}
+.m_site .header .menu .on a:active { background:#22aa82;}
+
+.m_site .side .content>ul>li ul li .text:hover { background:#f7f7f7;}
+.m_site .side .content>ul>li ul li .text:active { background:#f2f2f2;}
+.m_site .side .content>ul>li ul .on .text { color:#22aa82; border-left-color:#22aa82;}
+.m_site .side .content>ul>li ul .on .text:hover,
+.m_site .side .content>ul>li ul .on .text:active { background:none;}
+.m_site .side .content>ul>.on>.text { color:#22aa82;}
+.m_site .side .content>ul>.on>.text:hover,
+.m_site .side .content>ul>.on>.text:active { background:none;}

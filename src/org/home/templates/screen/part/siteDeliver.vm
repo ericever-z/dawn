@@ -1,0 +1,32 @@
+<span class="mod-public-attr e-dialog hide">
+	<header>
+		<h1 class="title">设置站点管理员</h1>
+		<span title="关闭" class="dialog-close-btn">×</span>
+	</header>
+	<form id="J_SiteDeliverForm" name="siteDeliverForm" action="" method="post">
+	<input type="hidden" name="action" value="/SiteAction"/>  
+	<input type="hidden" name="event_submit_doReferredToUser" value="y"/>
+	<input type="hidden" id="workId" name="workId" value=""/>
+	<input type="hidden" id="nick" name="nick" value=""/>
+	<input type="hidden" name="siteId" id="J_siteId" name="siteId" value="$!siteId">
+	<span id="content">
+		<span class="wrapper">
+			<span class="wrapper_1">
+				<span class="dialog-label">转交给:</span>
+				<input type="text" class="user_auto" name="" value="" placeholder="输入花名/拼音，选中后添加" style="width:180px;"/> 
+				<input type="hidden" name="receiver" nick=""/>
+			</span>
+			<ul class="note">
+				<li class="red">注意：</li>
+				<li>转交后，您不再是小站的主人（总管理员），将无法编辑小站内容或维护“管理员”列表</li>
+				<li>如果您在“管理员”列表中，您仍然可以编辑小站</li>
+			</ul>
+			<footer class="footer">
+				<input type="button" id="J_BtnSave" class="e-btn e-btn-primary"
+					value="确认"> <input type="button" id="J_BtnCancle"
+					value="取 消" class="e-btn">
+			</footer>
+		</span>
+	</span>
+	</form>
+</span>

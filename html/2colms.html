@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+             <link rel="stylesheet" type="text/css" href="../src/css/global/reset.css"> 
+        <link rel="stylesheet" type="text/css" href="../src/css/module/dialog.css">
+         <link rel="stylesheet" type="text/css" href="../src/css/module/shape.css">
+   
+    <link rel="stylesheet" type="text/css" href="../src/css/module/states.css">
+</head>
+<body>
+<span class="state_0" flip-state ng-if="active.state==0">
+                <span class="dia_head" >
+                    <span class="dia_head_title">翻牌器配置面板</span>
+                    <span class="dia_head_close" ng-click="cancel()"></span>
+                    <span class="config_box">
+                        <span class="config_panel">
+                            <p class="tip_style">数据设置</p>
+                            <ul class="config_tab">
+                                <li ng-repeat="item in cofData track by $index" ng-class="{tab_hiLight:cofData.indexOf(item)==tab.active}" ng-click="changeState($index)">{{item.name}}</li>
+                            </ul>
+                            <span class="config_tab_state" ng-switch on="tab.active">
+                                    <div ng-switch-when="0" class="config_panel">
+                                        <button class="btn_add">+添加主指标</button>
+                                    </div>
+                                    <div ng-switch-when="1">111</div>
+                            </span>
+                        </span>
+                        <span class="com_preview">
+                            <p class="tip_style">图形预览</p>
+                            <span class="preview_box">
+                                <div class="preview_inner_box">
+                                    <span flipper="8888888"></span>
+                                </div>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </span>
+</body>    
+</html>

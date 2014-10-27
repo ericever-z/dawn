@@ -1,0 +1,28 @@
+$rundata.setLayoutEnabled(false)
+<span class="mod-public-attr e-dialog hide">
+	<header>
+        <h1 class="title">新增url</h1>
+		<span title="关闭" class="dialog-close-btn">×</span>
+    </header>
+	<span id="content">
+		<span class="q-add">
+			<span class="row">
+				<label><span class="cr">*</span>请输入百科标题：</label>
+			</span>
+			<span class="row">
+				<input name="title" class="event-focus" type="text" title="标题最多可输入30个字" value="标题最多可输入30个字" />
+			</span>
+			<span class="row">
+				<label>输入选择百科的主题：</label>
+			</span>
+			<span class="row">
+				<input  name="theme" id="theme" class="event-focus J_Suggest" data-type="topic" type="text" title="输入主题，多个主题用逗号分隔" value="输入主题，多个主题用逗号分隔" />
+			</span>
+		</span>
+		<footer class="footer">
+			<input type="button" id="J_BtnSave" class="e-btn e-btn-primary" value="确认">
+				<input type="button" id="J_BtnCancle" value="取 消" class="e-btn">
+    	</footer>
+	</span>
+
+</span>

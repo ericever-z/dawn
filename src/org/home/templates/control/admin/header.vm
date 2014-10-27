@@ -1,0 +1,13 @@
+ <span class="mod-mini-nav">
+        <span class="mini-nav-bd">
+            $!user.nick，欢迎来到淘数据开放平台！[<a href="http://dw.taobao.ali.com/index.htm?spm=0.0.0.0.pcllcg&action=loginAction&event_submit_do_logout=yes">退出</a>]
+            <span class="short-menu">
+                <a href="http://dw.taobao.ali.com/index.htm" target="_blank">淘数据首页</a>
+                <span>|</span>
+                <a href="/dataservice/portal/index.htm" target="_blank">开放平台首页</a>
+                <span>|</span>
+                <a href="javascript:void(0)" target="_blank">开放平台百科</a>
+            </span>
+        </span> 
+    </span>
+   

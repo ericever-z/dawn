@@ -1,0 +1,135 @@
+/**
+ * 栅栏布局
+ * @author : yu.yuy
+ * @createTime : 2012-10-15
+ */
+.grid-container{
+	width: 1280px;
+	margin: 0 auto;
+	min-height: 650px;
+}
+.row{
+	*zoom: 1;
+}
+.row:after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "\0020";
+}
+.row>span:last-child{
+	margin-right: 0;
+}
+.grid-fixed{
+	margin-right: 0!important;
+}
+.grid-1,
+.grid-2,
+.grid-3,
+.grid-4,
+.grid-5,
+.grid-6,
+.grid-7,
+.grid-8,
+.grid-9,
+.grid-10,
+.grid-11,
+.grid-12,
+.grid-13,
+.grid-14,
+.grid-15,
+.grid-16,
+.grid-17,
+.grid-18,
+.grid-19,
+.grid-20,
+.grid-21,
+.grid-22,
+.grid-23,
+.grid-24,
+.grid-25,
+.grid-26{
+	float: left;
+	margin-right: 20px;
+}
+.grid-1 {
+	width: 30px;
+}
+.grid-2 {
+	width: 80px;
+}
+.grid-3 {
+	width: 130px;
+}
+.grid-4 {
+	width: 180px;
+}
+.grid-5 {
+	width: 230px;
+}
+.grid-6 {
+	width: 280px;
+}
+.grid-7 {
+	width: 330px;
+}
+.grid-8 {
+	width: 380px;
+}
+.grid-9 {
+	width: 430px;
+}
+.grid-10 {
+	width: 480px;
+}
+.grid-11 {
+	width: 530px;
+}
+.grid-12 {
+	width: 580px;
+}
+.grid-13 {
+	width: 630px;
+}
+.grid-14 {
+	width: 680px;
+}
+.grid-15 {
+	width: 730px;
+}
+.grid-16 {
+	width: 780px;
+}
+.grid-17 {
+	width: 830px;
+}
+.grid-18 {
+	width: 880px;
+}
+.grid-19 {
+	width: 930px;
+}
+.grid-20 {
+	width: 980px;
+}
+.grid-21 {
+	width: 1030px;
+}
+.grid-22 {
+	width: 1080px;
+}
+.grid-23 {
+	width: 1130px;
+}
+.grid-24 {
+	width: 1180px;
+}
+.grid-25 {
+	width: 1230px;
+}
+.grid-26 {
+	width: 1280px;
+}
+.ie8 .row{
+	margin: 0 -10px;
+}

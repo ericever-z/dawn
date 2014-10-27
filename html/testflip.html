@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="flip.js"></script>
+        <style type="text/css">
+body {
+  margin-top: 2em;
+  background-color: #eee;
+}
+body input {
+  display: none;
+}
+body .btnPnl {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: .5em;
+  padding: 0.4em;
+}
+body .btnPnl button {
+  height: 2em;
+  width: 2em;
+  font-size: 2em;
+  border: 1px solid #555;
+  border-radius: 1em;
+  background: #aaaaaa radial-gradient(ellipse at center, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+body .btnPnl button:focus {
+  outline: 0;
+}
+body .btnPnl button:first-child {
+  display: block;
+}
+body .flipNumber,body .flipNumber1 {
+  width: .6em;
+  height: 1em;
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 0 .1em 0;
+  padding: 0;
+  font-size: 1000%;
+  font-family: impact, arial;
+  text-align: center;
+  color: #fff;
+  border-radius: .1em;
+/*  box-shadow: 0.02em 0.03em 0.1em rgba(0, 0, 0, 0.5);*/
+}
+body .flipNumber li,body .flipNumber1 li {
+  position: absolute;
+  width: .6em;
+  height: .5em;
+  border-radius: 0.1em;
+  padding: 0;
+  transform-style: preserve-3d;
+  transform-origin: 100% 100% 0;
+}
+body .flipNumber li > div,body .flipNumber1 li > div {
+  width: 100%;
+  height: 99%;
+  line-height: 1em;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  border: 1px solid #777;
+  overflow: hidden;
+  background-color: #0a0909;
+  backface-visibility: hidden;
+}
+body .flipNumber li > div:first-child,body .flipNumber1 li > div:first-child {
+  border-radius: 0.1em 0.1em 0 0;
+}
+body .flipNumber li > div:last-child,body .flipNumber1 li > div:last-child {
+  border-radius: 0 0 0.1em 0.1em;
+  transform-origin: 0% 50%;
+  transform: rotateX(-180deg);
+}
+body .flipNumber li > div:last-child div,body .flipNumber1 li > div:last-child div {
+  margin-top: -0.5em;
+}
+body .flipNumber .prev,
+body .flipNumber .curr,
+body .flipNumber .next {
+  perspective: 200px;
+}
+body .flipNumber .prev,
+body .flipNumber .next {
+  z-index: 5;
+}
+body .flipNumber .prev,
+body .flipNumber .curr {
+  transform: rotateX(180deg);
+}
+body .flipNumber .prev {
+  border-radius: 0.1em 0.1em 0 0;
+}
+body .flipNumber .curr {
+  z-index: 10;
+  transition: transform .3s linear;
+}
+body .flipNumber .next {
+  transform: rotateX(0);
+}
+
+        </style>
+    </head>
+    <body>
+        <div>
+          <ul class="flipNumber">
+      <li>
+        <div><div>9</div></div>
+        <div><div>0</div></div>
+      </li>
+      <li>
+        <div><div>0</div></div>
+        <div><div>1</div></div>
+      </li>
+      <li>
+        <div><div>1</div></div>
+        <div><div>2</div></div>
+      </li>
+      <li>
+        <div><div>2</div></div>
+        <div><div>3</div></div>
+      </li>
+      <li>
+        <div><div>3</div></div>
+        <div><div>4</div></div>
+      </li>
+      <li>
+        <div><div>4</div></div>
+        <div><div>5</div></div>
+      </li>
+      <li >
+        <div><div>5</div></div>
+        <div><div>6</div></div>
+      </li>
+      <li >
+        <div><div>6</div></div>
+        <div><div>7</div></div>
+      </li>
+      <li>
+        <div><div>7</div></div>
+        <div><div>8</div></div>
+      </li>
+      <li>
+        <div><div>8</div></div>
+        <div><div>9</div></div>
+      </li>
+    </ul>  
+        </div>
+        <div>
+          <ul class="flipNumber">
+      <li>
+        <div><div>9</div></div>
+        <div><div>0</div></div>
+      </li>
+      <li>
+        <div><div>0</div></div>
+        <div><div>1</div></div>
+      </li>
+      <li>
+        <div><div>1</div></div>
+        <div><div>2</div></div>
+      </li>
+      <li>
+        <div><div>2</div></div>
+        <div><div>3</div></div>
+      </li>
+      <li>
+        <div><div>3</div></div>
+        <div><div>4</div></div>
+      </li>
+      <li>
+        <div><div>4</div></div>
+        <div><div>5</div></div>
+      </li>
+      <li >
+        <div><div>5</div></div>
+        <div><div>6</div></div>
+      </li>
+      <li >
+        <div><div>6</div></div>
+        <div><div>7</div></div>
+      </li>
+      <li>
+        <div><div>7</div></div>
+        <div><div>8</div></div>
+      </li>
+      <li>
+        <div><div>8</div></div>
+        <div><div>9</div></div>
+      </li>
+    </ul>  
+        </div>
+    </body>
+</html>

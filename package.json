@@ -1,0 +1,18 @@
+{
+  "name": "dawn2",
+  "version": "1.0.0",
+  "description": "dawn season2",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "grunt start",
+    "prebuild": "npm install",
+    "build": "grunt"
+  },
+  "author": "yirong.zd",
+  "license": "alibaba",
+  "devDependencies": {
+    "angular": "^1.2.23"
+  }
+}

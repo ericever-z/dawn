@@ -1,0 +1,105 @@
+<!-- 编辑页面头（可视化建站页面头）即  xx欢迎来到淘数据  淘数据首页，开放平台首页，开放平台百科 -->
+<!-- 功能菜单区 开始 -->
+
+<!-- 功能菜单区 结束 -->
+<!-- 站点预览区 开始 -->
+<input type="hidden" id="siteId" name="siteId" value="$!site.id"/>
+<input type="hidden" id="style" name="style" value="$!site.style"/>
+<input type="hidden" id="leafOpenType" name="leafOpenType" value="$!configOpenType"/>
+<input type="hidden" id="leafConfigUrl" name="leafConfigUrl" value="$!configUrl"/>
+<input type="hidden" id="leafRemoveCode" name="leafRemoveCode" value="$!leafRemoveCode">
+<span class="m_site" id="J_SiteConfig" style="height:100%;">
+	<!-- 头部 开始 -->
+	<span class="header">
+		<span class="logo" >
+		#if("$!site.LogoUrl" != "")
+			<!-- 微软雅黑26号 <font class="logo" face="微软雅黑" size="26" ></font>-->
+				<img src="$!site.LogoUrl" alt="logo" /><!-- 120×40 logo 图片一张 -->
+		#else
+				<span>$!site.title</span>
+				
+				<!-- 页面调试用JS，点击添加LOGO进行测试
+				请 JS 开发人员参考并重写 -->
+			
+		#end
+		
+		</span>
+	
+		<span class="menu">
+			<ul class="menuNavigation">
+				#foreach($menu in $siteMenuList)
+				#if($velocityCount < 6)
+					<li class="menu #if($velocityCount == 1) on #end"><a href="javascript:void(0)" data-id="$!menu.id" class="e-loadChildMenu" page-url="$!menu.pageUrl" open-type="$!menu.pageOpenType" remove-code="$!menu.removeHead">$menu.name</a></li>
+				#end
+				#end
+				
+			</ul>
+		</span>
+		#if($siteMenuList.size() >= 6)
+		<span class="more">
+			<a href="#nogo">更多<span class="ico"></span></a>
+			<span class="c_subnav">
+				<ul class="moreNavigation">
+					#foreach($menu in $siteMenuList)
+					#if($velocityCount >= 6)
+						<li class="menu"><a href="javascript:void(0)" data-id="$!menu.id" parent-id="0" page-id="$!menu.pageId" class="e-loadChildMenu" page-url="$!menu.pageUrl" open-type="$!menu.pageOpenType" remove-code="$!menu.removeHead">$menu.name</a></li>
+					#end
+					#end
+				</ul>
+			</span>
+		</span>
+		#end
+		<span class="info">
+			<span class="hi">你好，$!user.nick！</span>
+			<a href="https://login-test.alibaba-inc.com/ssoLogin.htm?APP_NAME=dawn&BACK_URL=http://$!dawnDomain/index.htm&CANCEL_CERT=true" class="exit">[退出]</a>
+		</span>
+		<!-- 页面调试用JS，点击编辑菜单进行测试
+		请 JS 开发人员参考并重写 -->
+	</span>
+	<!-- 头部 结束 -->
+	<span class='container-wrapper' style='top:50px;'>
+	<!-- 侧栏菜单 开始 -->
+	<span class="menu-list">
+	<!--默认展示第一个-->
+	#foreach($menu in $siteMenuList)
+	#set($onenum = $velocityCount) 
+	#set($twoMenuList = $menu.childMenuList)
+	#if($twoMenuList)
+		
+    	 
+    	<span class="side" #if($onenum != 1)style="display:none;"#end id="twolevel_$!menu.id">
+    		<span class="content">
+    			<ul>
+    				#foreach($twoMenu in $twoMenuList)
+					#set($twonum = $velocityCount) 
+    				<li #if("$!leafMenuId" == "$!twoMenu.id") class="menu on" #else class="menu" #end>
+    					<a href="javascript:void(0)" class="text menu_head" title="$!twoMenu.name" id="twoMenu_$!twoMenu.parentId_$!twoMenu.id" data-id="$!twoMenu.id" parent-id="$!twoMenu.parentId" page-id="$!twoMenu.pageId" page-url="$!twoMenu.pageUrl" open-type="$!twoMenu.pageOpenType" remove-code="$!twoMenu.removeHead">$!twoMenu.name</a>
+    					#set($threeMenuList = $twoMenu.childMenuList)
+    					#if($threeMenuList)
+    					<ul class='menu_body' #if($onenum == 1 && $twonum == 1) #if($!isExpand == 1)style="display: block;"#end #end>
+    						#foreach($threeMenu in $threeMenuList)
+    						<li #if("$!leafMenuId" == "$!threeMenu.id") class="menu on" #else class="menu" #end><a href="javascript:void(0)" class="text lastMenu" title="$!threeMenu.name" id="threeMenu_$!threeMenu.parentId_$!threeMenu.id" data-id="$!threeMenu.id" parent-id="$!threeMenu.parentId" page-id="$!threeMenu.pageId" page-url="$!threeMenu.pageUrl" open-type="$!threeMenu.pageOpenType" remove-code="$!threeMenu.removeHead">$!threeMenu.name</a></li>
+    						#end
+    					</ul>
+    					#end
+    				</li>
+    				#end
+    			</ul>
+    		</span>
+    		<!-- 页面调试用JS，点击编辑菜单进行测试
+    		请 JS 开发人员参考并重写 -->
+    	</span>
+	
+	#end
+	#end
+	</span>
+	<!--第一次默认为第一个叶子节点信息-->
+	<span class="main" id="mainSite">
+		<iframe class="site" id="J_IframeSrc" #if($!configOpenType == 1) src="$!configUrl" #end frameborder="0"></iframe>
+		<!-- 使用 iframe 内嵌网页 -->
+	</span>
+	</span>
+	<!-- 主栏 结束 -->
+<!-- 站点预览区 结束 -->
+</span>
+<script type="text/javascript" src="/js/home/portal/site.js"></script>

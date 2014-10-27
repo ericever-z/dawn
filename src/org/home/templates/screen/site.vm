@@ -1,0 +1,15 @@
+$!msg
+
+##<span class="q-add">
+##	<form id="J_UrlBlockSave" name="urlBlockSave" data-action="/home/pub/ajaxResultPage.htm">
+##		<input id="action" name="action" type="hidden" value="UrlBlockAction" />
+##		<input type="hidden" id="event_submit_do_saveStep1" name="event_submit_do_saveStep1" value="y">
+##    	<span class="row">
+ ##   		<label><span class="cr">*</span>请输入链接URL：</label>
+##    	</span>
+##    	<span class="row">
+##    		<input name="title" class="event-focus" type="text" title="标题最多可输入30个字" value="标题最多可输入30个字" />
+##    	</span>
+    	
+##	</form>
+##</span>

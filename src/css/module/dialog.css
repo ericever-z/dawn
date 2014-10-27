@@ -1,0 +1,232 @@
+span.modal-content{
+    width:980px;
+}
+.dia_container{
+    position: relative;
+    width: 980px;
+    min-height:530px;
+    border-radius: 5px;
+    border:1px solid #225976;
+    transition: height .5s ease;
+}
+.dia_head{
+    position: relative;
+    width: 100%;
+    height: 35px;
+    line-height: 30px;
+    background-color: #18896f;
+}
+.dia_head_title{
+    padding-left:10px;
+    color:#b9f764;
+    font-size:14px;
+}
+.dia_head_close{
+    position: absolute;
+    display: inline-block;
+    right: 4px;
+    top:50%;
+    margin-top:-12px;
+    border:2px solid #dbdbdb;
+    border-radius: 3px;
+    width: 20px;
+    height: 20px;
+    cursor:pointer;
+}
+.dia_head_close:hover{
+    border-color:white;
+}
+span.dia_head_close:before{
+    display: inline-block;
+    content:"";
+    position: absolute;
+    width:16px;
+    height: 2px;
+    background-color: #eae7e7;
+    top:7px;
+    left:0;
+    transform: rotate(45deg);
+}
+span.dia_head_close:after{
+    display: inline-block;
+    content:"";
+    position: absolute;
+    width:2px;
+    height:16px;
+    background-color: #eae7e7;
+    top:0;
+    left:7px;
+    transform: rotate(45deg);
+}
+.gallery{
+    position: relative;
+    width:880px;
+    height: 114px;
+    margin: 20px auto;
+    margin-top:30px;
+    overflow: hidden;
+}
+.dia_more{
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 40px;
+    background-color: #dfdfdf;
+    cursor: pointer;
+}
+.moreLeft{
+    left:0;
+}
+.moreLeft:before{
+     position: absolute;
+    display: inline-block;
+    content:"";
+    width: 5px;
+    height: 20px;
+    top:38px;
+    left:18px;
+    transform: rotate(35deg);
+    background-color: #267bd0;   
+}
+.moreLeft:after{
+     position: absolute;
+    display: inline-block;
+    content:"";
+    width: 5px;
+    height: 20px;
+    top:52px;
+    left:18px;
+    transform: rotate(-35deg);
+    background-color: #267bd0;   
+}
+.moreRight{
+    right:0;
+    top:0;
+}
+.dia_more:hover{
+    background-color: #a2acb9; 
+}
+.moreRight:before{
+    position: absolute;
+    display: inline-block;
+    content:"";
+    width: 5px;
+    height: 20px;
+    top:38px;
+    left:18px;
+    transform: rotate(-35deg);
+    background-color: #267bd0;
+}
+.moreRight:after{
+    position: absolute;
+    display: inline-block;
+    content:"";
+    width: 5px;
+    height: 20px;
+    top:52px;
+    left:18px;
+    transform: rotate(35deg);
+    background-color: #267bd0;
+}
+ul.tracks{
+    position: absolute;
+    height: 100%;
+    max-width:3000px;
+    min-width:1000px;
+    left:40px;
+    top:0;
+    overflow: hidden;
+}
+ul.tracks li{
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+    border:1px solid #267bd0;
+    width: 150px;
+    height: 100%;
+    margin:0 5px;
+    text-align: center;
+    cursor:pointer;
+    left:0px;
+   /** left:-160px;/***step 160***/
+    transition:left .5s ease-in-out;
+}
+ul.tracks li:hover{
+    /**112X150**/
+}
+.showcase{
+    position: relative;
+    width: 880px;
+    height: 300px;
+    margin: 0 auto;
+    border:1px solid #267bd0;
+    transition:border .1s ease-in-out;
+    visibility: hidden;
+}
+
+span.showcase_arrow{
+    position:absolute;
+    border-color:#267bd0;
+    width: 30px;
+    height: 30px;
+    top:-16px;
+    left:110px;/**step 150***/
+    transition:left .2s ease-in;
+}
+.com_img{
+    display: inline-block;
+    width: 140px;
+    height: 100px;
+    margin:0 auto;
+    margin-top:8px;
+    background-color: #ccc;
+    background: url(../../../assets/img/piechart.png);
+}
+.com_title{
+    position: absolute;
+    left: 0;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    bottom: -26px;
+    color:white;
+    background-color: rgba(35, 118, 180, 0.48);
+    transition:bottom .1s ease-in-out;
+}
+.dia_sub{
+    position: absolute;
+    left:50%;
+    margin-left:-45%;
+    width: 90%;
+    bottom: 10px;
+    height: 60%;
+}
+ul.dia_sub li{
+    float: left;
+    position: relative;
+    margin: 0 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: border,width .2s ease-in-out;
+}
+ul.dia_sub li:hover{
+    border:1px solid #377da8;  
+}
+span.type_cover{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    z-index: 100;
+    background-color: #16305a!important;
+    opacity: 0.1;
+    transition: opacity,color 0.2s ease-in;
+    text-align: center;
+    color:#0d334e;
+    font-size: 24px;
+}
+span.type_cover:hover{
+   opacity: 0.4;
+    color:white;
+}

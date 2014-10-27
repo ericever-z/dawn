@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>淘数据-请先申请权限！</title>
+<style>
+	
+    body{font-family:"微软雅黑";font-size:14px;  margin:0;background-color:#f3f3f3;}
+	h1{font-size:50px; line-height:30px;color:#323232;}
+	p{font-size:24px; line-height:14px; color:#323232;padding:0; margin:10px 0}
+	a{color:#2686c9;font-size:12pt;line-height:20px;}
+	img { border:0px;display:block; margin:0 auto;}
+	#page{ margin:0 auto; }
+	#error{ background-image:url(/images/error/bg.png); width:746px; height:460px; margin:60px auto;z-index:1;}
+	#pic{background-image:url(/images/error/403.gif); width:350px; height:285px; float:right; position:absolute;margin:80px 370px;z-index:2;}
+	#text{display:block; float:left; position:absolute; margin:95px 55px; width:350px;z-index:3;}	
+</style>
+</head>
+
+<body>
+	<span id="page">
+		<span id="error">
+			<span id="text">
+				<h1>很抱歉！</h1>
+				<p style="font-size:22px;line-height:10px;">您暂时没有查看该页面的权限</p>
+				<br>
+				<p style="font-size:18px;line-height:6px;">申请权限请提交流程：</p>
+				<span style="height:180px;overflow-y:auto;border:1 solid black;">
+    				#if("$!rundata.parameters.bp" == "" && "$!rundata.parameters.role" == "")
+    					<p><a href="http://wf.alibaba-inc.com/app/BIService/Default#1" target="_self">http://wf.alibaba-inc.com/app/BIService/Default#1</a></p>
+    				#else
+    					#if("$!rundata.parameters.bp" != "")
+    						<p><a href="http://wf.alibaba-inc.com/new/smartflow/default/index?requesttypename=c_data_proj&bp=$!{rundata.parameters.bp}" target="_self">http://wf.alibaba-inc.com/new/smartflow/default/index?requesttypename=c_data_proj&bp=$!{rundata.parameters.bp}</a></p>
+    					#elseif($roles)
+    						#foreach($r in $roles)
+    							<p>
+    								<a title="$!r.description" href="http://wf.alibaba-inc.com/new/smartflow/default/index?requesttypename=c_data_proj&role=$!r.roleId" target="_self">申请加入角色【$!r.roleName {Owner:$!r.owner}】</a>
+    							</p>
+    						#end
+    					#else
+    						<p><a href="http://wf.alibaba-inc.com/new/smartflow/default/index?requesttypename=c_data_proj&role=$!{rundata.parameters.role}" target="_self">http://wf.alibaba-inc.com/new/smartflow/default/index?requesttypename=c_data_proj&role=$!{rundata.parameters.role}</a></p>
+    					#end
+    				#end
+				</span>
+			</span>
+			<span id="pic"></span>
+		</span>
+	</span>
+	
+</body>
+</html>

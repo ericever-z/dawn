@@ -1,0 +1,61 @@
+.cell_init{
+    min-height: 180px;
+    border:1px solid red;
+    background-color: pink;
+}
+span.row{
+    position: relative;
+    margin:10px auto;
+    margin-top:12px;
+    min-width: 770px!important;
+}
+.cell_gear{
+    position: absolute;
+    display: inline-block;
+    right: 5px;
+    top:-12px;
+    height: 24px;
+    min-width: 80px;
+    padding: 0 5px;
+    background-color: #777373;
+    border-radius: 5px;
+   
+}
+.cell_icon{
+    position: relative;
+    width: 16px;
+    height: 16px;
+    top:4px;
+    margin-left:2px; 
+    cursor: pointer;
+}
+.cell_bar_gear{
+    background: url(../../../assets/img/gear.png) no-repeat;
+}
+.cell_icon:hover{
+    background-color: rgba(236, 238, 240, 0.3);
+}
+.cell_bar_trash{
+    background: url(../../../assets/img/gear.png) no-repeat -32px 0;
+}
+.cell_bar_resize{
+      background: url(../../../assets/img/gear.png) no-repeat -16px 0;  
+}
+.cell_bar_up{
+    background: url(../../../assets/img/gear.png) no-repeat -48px 0; 
+}
+.cell_bar_down{
+    background: url(../../../assets/img/gear.png) no-repeat -64px 0; 
+}
+.cell_size_config{/**设置宽度和高度***/
+    position: absolute;
+    height: 160px;
+    width:  460px;
+    border:1px solid red;
+    border-color: #ccc;
+    background-color: #fff;
+    box-shadow:3px 4px 1px #fcccc;
+    -webkit-box-shadow:3px 4px 1px #fcccc;
+    -moz-box-shadow:3px 4px 1px #fcccc;
+    z-index: 999;
+}

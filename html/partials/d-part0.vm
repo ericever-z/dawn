@@ -1,0 +1,60 @@
+		<span class="url-config-label">
+			当前页面：<span id="menuPath">主菜单1》SS》45</span>  
+		</span>
+        <h1>测试页面 无侧边栏的情况下</h1>
+		<span class = "url-config-wrapper">
+			<span class="input-pre-append">
+				<span class="input-prepend">
+					<a href="javascript:void(0)" class="iconfont del" id="deleteUrl">&#xf0002;</a>
+				</span>
+				<span class="readonly-wrapper">
+					<input class="url-config-input" id="pageUrl"  style="color:#999999" type="text" page-id="" menu-id="328"  placeholder="请输入URL链接嵌入到小站中（第三方数据产品页面链接，必须去头去尾）" />
+					<span class="readonly" id="readonly"></span>
+				</span>
+				<span class="input-append">
+					<a href="javascript:void(0)" class="iconfont lock" id="lock_input">&#xf00c9</a>
+					<a href="javascript:void(0)" class="iconfont unlock" id="unlock_input">&#xf0036</a>
+					<a href="javascript:void(0)" class="iconfont save" id="save_url">&#xe733</a>
+				</span>
+			</span>
+			<span class="checkbox">
+				<input type='checkbox' id="open-target" >在新窗口打开</input>
+			</span>
+		</span>
+		<span class="note-wrapper">
+			<span class="instruction">
+			说明：</br>
+			1、小站暂时只支持展现其他产品页面数据内容（如ADM报表、喵日报、IDATA门户、快门七巧板页面等）</br>
+			2、请将其他数据产品的页面地址嵌入小站中，必须去头去尾，否则风格将不统一，影响美观</br>
+			</span>
+			<span class="reference">
+			参考：</br>
+			去头去尾的链接参考，更多链接联系各自的产品PD</br>
+			淘数据ADM报表：<span> http://dw.taobao.ali.com/mstr/report_view.htm?menuId=12345</span>    （改成你的报表id）       </br>
+			喵日报：<span> http://bi.tmall.com/report/naked?target=aaa_bbb_ccc</span>       （改成你的喵日报）</br>
+			业务线门户：<span> http://shuju.taobao.ali.com/idata/bu/index.htm?p=abc</span> （改成你的业务线域名）</br>
+			孔明灯日报：<span> http://bi.taobao.org/spreadsheet.htm?readonly=true&dsmid=12345 </span> （改成你的孔明灯日报id）</br>
+			快门报表：<span> http://shutter.alibaba-inc.com/report/dataPreview.htm?nav=none&reportId=12345 </span>  （改成你的快门报表id）</br>
+			快门七巧板页面：<span> http://shutter.alibaba-inc.com/page/pagePreview.htm?nav=none&id=123 </span>   （改成你的快门七巧板页面id）</br>
+			</br>
+			更多参考请看建站帮助：<a href="http://designboard.alibaba-inc.com/detail/40312" target="_blank"><u>http://designboard.alibaba-inc.com/detail/40312</u></a>
+			</span>
+		</span>
+		<span class="set" style="display:none">
+			<span class="position">
+				<span class="tip" id="pageInfo">
+					<span class="label">当前页面为</span>
+					<span class="value" id="page_url_value"></span>
+				</span>
+				<span class="url">
+					<a href="javascript:void(0)" id="urlLocation" >点击此处修改页面URL</a>
+					<span class="input" style="display:none;" id="editUrl" ><input type="text" id="pageUrl" page-id="" menu-id="328" /></span><!-- 输入框，点击按钮后显示 -->
+				</span>
+			</span>
+			<span class="fn">
+				<a href="javascript:void(0)" id="updateUrl" >修改页面URL</a>
+				<a href="javascript:void(0)" id="deleteUrl" >删除页面URL</a>
+			</span>
+		</span>
+		<!--<iframe class="site" src="http://www.taobao.com" frameborder="0"></iframe>-->
+		<!-- 使用 iframe 内嵌网页 -->

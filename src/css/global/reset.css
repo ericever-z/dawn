@@ -1,0 +1,35 @@
+*{
+    padding:0;
+    margin:0;
+    border:0;
+    list-style: none;  
+    font-family: Microsoft YaHei,'SimSun',Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+    font-size: 12px;
+}
+a:focus,
+button:focus,
+select:focus,
+input[type='text']:focus,
+textarea:focus{
+    outline: none;
+}
+span{
+    display: inline-block;
+}
+/****
+    for angular rendering 
+**/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+@font-face {
+    font-family: 'digit';  /*给自定义字体命名*/
+    src: url('../font/UnidreamLED.ttf');
+/*
+    src: url('hooray.eot?#iefix') format('eot'),
+         url('hooray.woff') format('woff'),
+         url('hooray.ttf') format('truetype'),
+         url('hooray.svg#webfontjKg17VrE') format('svg');
+*/
+}

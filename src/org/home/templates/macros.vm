@@ -1,0 +1,1 @@
+#macro (mapGet $map $key $defaultValue)#if("$!map.get($key)" != "")$map.get($key)#{else}$defaultValue#{end}#end
