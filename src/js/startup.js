@@ -1,5 +1,6 @@
 require(['./config'],function(){
-    require(['jquery','angular',
+    require(['jquery',
+             'angular',
              'angular-route',//这个里面引入的地址是现对于当前这个js的
              'angular-ui',
              './controllers/MainCtrl',

@@ -1,0 +1,1 @@
+{"version":3,"file":"config.js","sources":["config.js.src.js"],"names":["require","config","paths","jquery","angular","angular-route","angular-ui","easing","bootstrap","shim","exports","deps"],"mappings":"AAAAA,QAAQC,QAEJC,OACIC,OAAS,8BACTC,QAAU,gCACVC,gBAAgB,wCAChBC,aAAa,oDACbC,OAAS,+CACTC,UAAY,wCAEhBC,MACIL,SACIM,QAAQ,WAEZL,iBACIM,MAAM,YAEVL,cACIK,MAAM"}

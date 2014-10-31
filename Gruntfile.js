@@ -15,7 +15,8 @@ module.exports = function(grunt) {
 					baseUrl: ".",
 					appDir : '<%= config.src.jsPath%>',
 					dir : '<%= config.build.jsPath%>',
-					optimize : 'uglify',
+					optimize : 'uglify2',/***2014-10-31 修改 uglify --- > uglify2***/
+                    generateSourceMaps: true,/***2014-10-31 新增生成 sourcemap***/
 					mainConfigFile : '<%= config.requirejs.configFile %>',
 					modules : '<%= config.requirejs.modules %>',
 					logLevel : 0,
