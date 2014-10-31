@@ -1,0 +1,173 @@
+/***
+    配置面板中得 右侧 预览面板的样式
+**/
+.com_preview{
+    width:50%;
+    height: 100%;
+    float: right;
+    position: relative;
+    color:#333;
+/*     background-color: #bfd7ec; */
+}
+.preview_box{
+    position: relative;
+    margin:0 auto;
+    top:50px;
+    width: 98%;
+    margin:0 2px;
+    height: 280px;
+  
+}
+.preview_inner_box{
+    position: relative;
+    margin:0 auto;
+    width: 98%;
+    min-height:100px; 
+    text-align: center;
+    top:10px;
+    border-top:1px solid #f6f6f6;
+    border-bottom:1px solid #f6f6f6;
+}
+.figure_value{
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+    min-width: 70%;
+    font-size: 72px;
+    font-family: digit;
+    letter-spacing: 4px;
+    background-color:white;
+    border-radius: 3px;
+}
+span.unit{
+    width: 50px;
+    height: 100%;
+    font-size: 50px;
+    font-family: digit;
+    color:#999;
+}
+.pre_head{
+    width: 90%;
+    margin:0 auto;
+    overflow: hidden;
+}
+div.pre_head label{
+    float: left;
+    font-size: 16px;
+    max-width: 70%;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+div.pre_head span{
+    float: right;
+    font-size: 14px;
+    max-width: 70%;  
+}
+.pre_sub_box{
+    position: relative;
+    width:98%;
+    margin:0 auto;
+    top:10px;
+    overflow: hidden;
+}
+.pre_sub_box ul{
+    float: left;
+    position: relative;
+    width: 75%;
+    min-height: 90px;
+    overflow: hidden;
+}
+.pre_sub_box ul li{
+   float:left;
+    width: 49%;
+    min-height: 50px;
+    text-align: center;
+    margin:1px;
+}
+.pre_sub_title{
+    width: 90%;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+}
+.pre_sub_value{
+    width:90%;
+    color:#358ee7;
+}
+.pre_aside{
+    float: right;
+    font-size: 16px;
+    color:#358ee7;
+}
+/****快捷指标*******/
+.pre_exp_figure{
+    position: relative;
+    margin:0 auto;
+    width:92%;
+    overflow: hidden;
+}
+ul.pre_exp_figure li{  
+    float: left;
+    position: relative;
+    width:49%;
+    height:100px;
+    background-color: #fbfbfb;
+    margin:1px;
+}
+.exp_title{
+    width: 100%;
+    font-size: 14px;
+    color:#555;
+}
+.exp_value{
+    width: 100%;
+    font-size: 18px;
+    color:#358ee7;
+    letter-spacing: 1px;
+}
+.pre_exp_sub{
+    margin:0 auto;
+    width: 80%;
+}
+.pre_exp_sub{
+    vertical-align: middle;
+    margin:1px auto;
+    height: 20px;
+    line-height: 20px;
+}
+.sub_title{
+    font-size: 12px;
+    top:-3px;
+    line-height: 18px;
+}
+.pre_exp_bull{
+    color:white;
+    height: 18px;
+    width:60%;
+    font-size: 8px;
+    background-color: red;  
+}
+.pre_exp_bear{
+    color:white;
+    font-size: 8px;
+    width:60%;
+    height: 18px;
+    background-color: #29e246;  
+}
+.arrow_up{
+    position: absolute;
+    border-left: 5px solid transparent; 
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid white;
+    right: 2px;
+    top:4px;    
+}
+.arrow_down{
+    position: absolute;
+    border-left: 5px solid transparent; 
+    border-right: 5px solid transparent;
+    border-top: 10px solid black;
+    right: 2px;
+    top:4px;    
+}

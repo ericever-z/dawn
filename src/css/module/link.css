@@ -1,0 +1,139 @@
+/***
+    文字连接模块的配置
+***/
+.link_model_title{
+    position: relative;
+    height: 30px;
+    margin:5px;
+    width:83%;
+    top:12px;
+    margin:0 auto;
+    color:black;
+    font-size: 14px;
+    line-height: 30px;
+}
+.link_model_title label{
+    width: 100px;
+}
+
+.link_model_table{
+    position: relative;
+    width: 92%;
+    margin:0 auto;
+}
+.link_model_add_btn{
+    position: relative;
+    cursor: pointer;
+    top:25px;
+    left:8.5%;
+    height: 30px;
+    line-height: 30px;
+    width: 120px;
+    text-align: center;
+    color:white;
+    background-color: #358ee7;
+}
+.link_table_wrapper{
+    position: relative;
+    top:40px;
+    height: 68%;
+    width: 90%;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+.link_model_tail{
+    position: absolute;
+    bottom:20px;
+    width: 100%;
+    text-align: center;
+}
+.link_model_table button{
+
+}
+.link_model_table thead{
+    
+    background-color: #a4a5a6;
+}
+.link_model_table thead tr{
+    min-height: 20px;
+    line-height: 30px;
+    text-align: center;
+/*    border:1px solid #358ee7;*/
+}
+.link_model_table tbody tr{
+    line-height: 32px;
+/*    border:1px solid rgba(53, 142, 231, 0.31);*/
+}
+.link_model_table tbody tr td{
+    position: relative;
+    padding: 0 5px;
+    width: 120px;
+}
+
+.link_model_table tbody tr:nth-child(even){
+    background-color: #e1e1e1;
+    color:#1485af;
+}
+.link_model_table tbody tr:nth-child(odd){
+    background-color: #feffff;  
+    color:#1485af;
+}
+.link_model_table tbody tr:hover{
+    background-color: rgba(64, 143, 222, 0.5);
+    cursor: pointer;
+}
+.td_action{
+    text-align: center;
+}
+.pencil{
+    position:relative;
+    width: 20px;
+    height: 20px;
+    top:5px;
+    background: url(../../img/link.png) no-repeat;
+    cursor: pointer;
+}
+input.link_input_style{
+    position: absolute;
+    width: 85%;
+    left:30px;
+    top:3px;
+    padding-left:5px;
+    background-color: #f6f8d6;
+    transition: border,left,box-shadow .5s ease-in-out;
+}
+input.link_input_style:focus{
+    border:1px solid #2b8cd3;
+	box-shadow: 0 0 3px rgba(116, 185, 239, 1);
+	transition: border,box-shadow .5s ease-in-out;
+}
+span.link_trash{
+    position:relative;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    top:5px;
+    cursor: pointer;
+    background: url(../../img/link.png) no-repeat -20px;
+
+}
+span.link_up{
+    background: url(../../img/link.png) no-repeat -40px;
+}
+span.link_down{
+    background: url(../../img/link.png) no-repeat -60px;
+}
+
+span.link_trash:hover{
+    background-color: #d7d7d7;
+}
+#stateName{
+    width: 300px;
+    border:1px solid #358ee7;
+    transition: border,box-shadow 0.3s ease-in-out;
+}
+#stateName:focus{
+    border:1px solid red;
+    box-shadow: 0 0 3px red;
+    background-color: #f6f8d6;
+}

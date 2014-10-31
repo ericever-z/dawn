@@ -1,39 +1,24 @@
-
-<span class="dawn_resize_contriner" resize-cell>
-    <span class="drsElement cell_style">
-         <span class="drsMoveHandle">span 1</span>
-    Content
-    </span> 
-</span>
-<span class="dawn_resize_contriner" resize-cell>
-    <span class="drsElement cell_style">
-         <span class="drsMoveHandle">span 1</span>
-    Content
-    </span> 
-    <span class="drsElement cell_style">
-        <span class="drsMoveHandle">span 2</span>
-     Content
-    </span>
-<!--
-    <span class="drsElement cell_style">
-        <span class="drsMoveHandle">span 3</span>
-     Content
-    </span>      
--->
-</span>
-<span class="dawn_resize_contriner" resize-cell>
-    <span class="drsElement cell_style">
-         <span class="drsMoveHandle">span 1</span>
-    Content
-    </span> 
-    <span class="drsElement cell_style">
-        <span class="drsMoveHandle">span 2</span>
-     Content
-    </span>
-
-    <span class="drsElement cell_style">
-        <span class="drsMoveHandle">span 3</span>
-     Content
-    </span>      
-
-</span>
+<div class="wrapper">
+    <div class="gear_panel" id="gear" ng-if="">
+        <input type="range" min="1" max="12" step="1" class="cst_slider" ng-model="wvalue">
+        <span class="fake_box"></span>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 cell_base" >
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 cell_base" >     
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 cell_base" >567</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cell_base" cell ng-mouseenter="enter()" ng-mouseleave="leave()">
+            <div class="cell_bar">
+                <span></span>
+                <span class="cell_kit">
+                     <SPAN class="cell_kit_gear cell_tool"></SPAN>
+                     <SPAN class="cell_kit_trash cell_tool"></SPAN>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>    

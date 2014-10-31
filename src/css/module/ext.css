@@ -1,0 +1,64 @@
+.ext_link{
+    position: relative;
+    min-height: 300px;
+    top:50px;
+    text-align: center;
+}
+.ext_specify{
+    height: 500px;
+}
+input.ext_input{
+    position: relative;
+    display: inline-block;
+    top:0;
+    width: 69%;
+    height: 30px;
+    background-color: #fbfce1;
+    font-size: 14px;
+    vertical-align: middle;
+    color:#0d7dd0;
+    padding: 0 5px;
+    transition: border,box-shadow 0.2s ease-in-out;
+}
+input.ext_input:focus{
+    border:1px solid red;
+    box-shadow: 0 0 2px red;
+}
+.ext_lock{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; 
+    border-top:1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    top:12px;
+    left:-4px;
+    cursor: pointer;
+    background: url(../../img/lock2.png) no-repeat 5px;
+}
+.ext_lock_up{
+    background: url(../../img/lock2.png) no-repeat -25px;
+}
+.ext_trash{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top:12px;
+    left:5px;
+    border-left: 1px solid #ccc; 
+    border-top:1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+    background: url(../../img/lock2.png) no-repeat -55px;
+}
+.ext_wrapper{
+    position: relative;
+    color: black;
+}
+.ext_wrapper span{
+    font-size:14px;
+}

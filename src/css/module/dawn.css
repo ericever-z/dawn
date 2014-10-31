@@ -1,16 +1,31 @@
-div.row{
-    min-width: 776px;
+.default_container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 980px;
 }
-span.container{
-    margin-left: 20px;
+.default_row{
+    position: relative;
+    width: 90%;
+    margin:0 auto;
 }
-span.dawn_layout_choice{
+.cell_row{
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.cell_tip{
+    display: inline-block;
+    height: 40px;
+    width: 100%;
+}
+.dawn_layout_choice{
+    position: relative;
+    display: inline-block;
+    width: 35%;
+    height: 320px;
     padding: 10px;
-    margin-right: 20px;
-    max-width: 400px;
-}
-span.dawn_layout_choice p{
-    padding: 0 5px;
+    overflow: hidden;
 }
 .dawn_shape_rect h5{
     position: absolute;
@@ -20,7 +35,7 @@ span.dawn_layout_choice p{
     margin-top:-6px;
 }
 .dawn_txt_padding{
-    padding: 10px 0;
+    padding: 10px;
     font-size: 14px;
 }
 h1.dawn_txt_padding{
@@ -41,7 +56,6 @@ span.style_title{
     width:100%;
 }
 .dawn_shape_rect{
-    display: inline-block;
     position: relative;
     box-sizing: border-box;
     height: 40%;

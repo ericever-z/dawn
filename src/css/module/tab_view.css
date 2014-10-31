@@ -1,0 +1,62 @@
+/***
+    配置面板中得 【图形指标】面板的样式
+***/
+.view_style{
+    position: relative;
+    top:10px;
+    margin:10px 0;
+    color:#333;
+    width:100%;
+    min-height: 100px;
+}
+.view_style p{
+    padding-left: 5px;
+    background-color: #ccc;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+}
+div.view_style_row{
+    position: relative;
+    padding-left: 15px;
+    height: 32px;
+    line-height: 30px;
+    margin:5px 0;
+}
+.view_style_row label{
+    position: relative;
+    padding: 0;
+    margin:0;
+}
+.view_style_row input[type="text"]{
+    line-height: 25px;
+    vertical-align: middle;
+    width:150px;
+    height: 25px;
+    padding-left: 5px;
+}
+
+ul.color_list{
+    display: inline-block;
+    position: absolute;
+    width: 70%;
+    height: 30px;
+    left:80px;
+    overflow: hidden;
+}
+ul.color_list li{
+    position: relative;
+    float: left;
+    height: 28px;
+    width: 28px;
+    margin:0 2px;
+    border:2px solid white;
+    text-align: center;
+    line-height: 28px;
+    cursor:pointer;
+    font-size: 18px;
+    transition:border,box-shadow 0.2s ease-in-out;
+}
+ul.color_list li:hover{
+    border:1px solid white;
+}

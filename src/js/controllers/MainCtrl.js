@@ -6,7 +6,7 @@ define(['./module'],function(module){
         };
     }]).controller('FreeCtrl',['$scope','DService',function($scope,DService){//自由组织数据
         DService.alert().then(function(result){//确定和提交的后续在这里处理
-            alert(result);
+            //alert(result);
         },function(err){//关闭和cancel的后续处理在这里
             
         });

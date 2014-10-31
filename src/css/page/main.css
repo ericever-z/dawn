@@ -1,8 +1,17 @@
+@import url(../module/bootstrap.min.css);
 @import url(../global/reset.css);
 @import url(../module/dawn.css);
 @import url(../module/shape.css);
-
+@import url(../module/dim.css);
 @import url(../module/dialog.css);
 @import url(../module/flip.css);
-@import url(../module/resize.css);
+@import url(../module/cell.css);
+@import url(../module/link.css);
+@import url(../module/ext.css);
+@import url(../module/combox.css);
+@import url(../module/tab_data.css);
+@import url(../module/tab_view.css);
+@import url(../module/preview.css);
+/*@import url(../module/resize.css);*/
 @import url(../module/states.css);
+@import url(../module/angular.rangeSlider.css);

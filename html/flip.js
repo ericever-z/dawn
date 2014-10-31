@@ -1,8 +1,7 @@
 function FlipDigit(){
   var self = this,
-      delay = 1550,
-      digitEls = $('.flipNumber'),
-      digitEls = $(digitEls[1]).children("li");
+      delay = 350,
+      digitEls = $('.flipNumber li'),
       currentNum = 0,
       maxDigit = 9,
       getPrevNum = function(){ 
@@ -24,23 +23,61 @@ function FlipDigit(){
         $(digitEls[getNextNum()]).addClass('next');
       };
   
+  self.setNum = function(digit){
+    self.flip(digit);
+  };
+  
   self.flip = function(targetNum){
     if(currentNum !== targetNum){
+      console.log('currentNum', currentNum, 'targetNum', targetNum, 'getPrevNum', getPrevNum(), 'getNextNum', getNextNum());      
+      console.log('before', digitEls);       
+
       remClasses();
       currentNum = getNextNum();
-      addClasses();   
-    }
-  };
-  addClasses();
-}
-$(function(){
-  var f = new FlipDigit();
-  f.flip(8); 
+      addClasses();
+
+      console.log('after', digitEls);       
+      
       setTimeout( 
         function(){
-          f.flip(9);
+          self.flip(targetNum);
         },
-        1000
-      );    
+        delay
+      );
+    }
+  };
+  
+  addClasses();
+  
+  return {
+    setNum: self.setNum
+  };
+}
+
+function increase(){  
+  $('#size').val(parseInt($('#size').val())*2).trigger('change');
+}
+function decrease(){  
+  $('#size').val(parseInt($('#size').val())/2).trigger('change');
+}
+
+$(function(){
+  var f = new FlipDigit(),
+      digit;
+  
+  f.setNum(10);
+  
+//  setInterval(function(){ 
+    //var digit = Math.floor(Math.random()*7, 0)+3;
+    //f.setNum(digit); }, 3000);
+//});
+  
+  $('#size').on('change', 
+    function(evt){
+      $('.flipNumber').css(
+        'font-size',                          $('#size').val() + '%'
+      );
+    }
+  );
 });
 

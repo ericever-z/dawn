@@ -52,7 +52,7 @@ module.directive("cellBar",function(){//可以resize的方格块
                                 }else{
                                     $("span.showcase").css({visibility:"hidden"});
                                 }                                 
-                            },400);
+                            },500);
                         }
                     }                   
                 });
@@ -106,17 +106,17 @@ module.directive("cellBar",function(){//可以resize的方格块
                         scope.$apply(function(){
                             scope.tab.iframe = 1;//显示iframe 1表示主指标，2表示小指标0，不显示
                         });
-                        $("#km").attr("src","http://www.baidu.com");//显示iframe里卖弄的内容
+                        $("#km").attr("src","http://shutter.alibaba-inc.com/report/reportAdd.htm?marketId=1000281&app=member&redirectUrl=http://elf.b2b.alibaba-inc.com/tools/shutter_task_save.htm?type=member");//显示iframe里卖弄的内容
                     }else if(e.target == $("#sub_figure").get(0)){
                         scope.$apply(function(){
                             scope.tab.iframe = 2;//显示iframe 1表示主指标，2表示小指标0，不显示
                         });
-                        $("#km").attr("src","http://www.baidu.com");//显示iframe里卖弄的内容
+                        $("#km").attr("src","http://shutter.alibaba-inc.com/report/reportAdd.htm?marketId=1000281&app=member&redirectUrl=http://elf.b2b.alibaba-inc.com/tools/shutter_task_save.htm?type=member");//显示iframe里卖弄的内容
                     }
                 });
                 scope.editMain = function(){
                     scope.tab.iframe = 1;//显示iframe 1表示主指标，2表示小指标0，不显示
-                    $("#km").attr("src","http://www.baidu.com");//显示iframe里卖弄的内容
+                    $("#km").attr("src","http://shutter.alibaba-inc.com/report/reportAdd.htm?marketId=1000281&app=member&redirectUrl=http://elf.b2b.alibaba-inc.com/tools/shutter_task_save.htm?type=member");//显示iframe里卖弄的内容
                 };
                 scope.removeMain = function(){
                     scope.config.data.sub = [];
@@ -124,7 +124,7 @@ module.directive("cellBar",function(){//可以resize的方格块
                 };
                 scope.editSub = function(f){
                     scope.tab.iframe = 2;//显示iframe 1表示主指标，2表示小指标0，不显示
-                    $("#km").attr("src","http://www.baidu.com");//显示iframe里卖弄的内容
+                    $("#km").attr("src","http://shutter.alibaba-inc.com/report/reportAdd.htm?marketId=1000281&app=member&redirectUrl=http://elf.b2b.alibaba-inc.com/tools/shutter_task_save.htm?type=member");//显示iframe里卖弄的内容
                 };
                 scope.removeSub = function(f){
                     var i = scope.config.data.sub.indexOf(f);
@@ -133,24 +133,96 @@ module.directive("cellBar",function(){//可以resize的方格块
             }
         }        
     }).directive("iframePanel",function(){
+        function deal(element,attrs){
+            this.edit = function(name,idx){
+                    //$event.stopPropagation();
+                    this.local[name][idx] = idx;
+            };
+            this.addLink = function(){
+                //$event.stopPropagation();
+                scope.linkdata.push({title:"",link:""});
+            };
+            this.up = function(idx){
+                var tmp = this.linkdata[idx-1];
+                if(tmp){
+                    this.linkdata[idx-1] = this.linkdata[idx];
+                    this.linkdata[idx] = tmp; 
+                }
+            };
+            this.down = function(idx){
+                var tmp = scope.linkdata[idx+1];
+                if(tmp){
+                    this.linkdata[idx+1] = this.linkdata[idx];
+                    this.linkdata[idx] = tmp;
+                }
+            };
+            this.clear = function(idx){
+                this.linkdata.splice(idx,1);
+            };
+            this.clearExt = function(){
+                this.extLink.link = "";
+            };
+            this.toggleExt = function(){
+                this.local.ext = !scope.local.ext;
+                if(!this.local.ext){
+                    $(".ext_wrapper input[type='text']").attr("readonly","true");
+                }else{
+                    $(".ext_wrapper input[type='text']").removeAttr("readonly");
+                }
+            }; 
+            this.ifClose = function(){
+                this.tab.iframe = 0;//关闭iframe的窗口           
+            };
+            this.confirm = function(){
+                if(this.tab.iframe == 1){
+                    this.config.data.main = {name:"主指标1"};
+                }else if(this.tab.iframe == 2){
+                    this.config.data.sub.push({name:"子指标1"});
+                }
+                this.ifClose();//关闭窗口
+            };  
+            element.on("click",function(e){
+                    e.stopPropagation();
+            });
+        }
         return{
             restrict:"A",
             link:function(scope,element,attrs){
-                scope.ifClose = function(){
-                    scope.tab.iframe = 0;//关闭iframe的窗口           
-                };
-                scope.confirm = function(){
-                    if(scope.tab.iframe == 1){
-                        scope.config.data.main = {name:"主指标1"};
-                    }else if(scope.tab.iframe == 2){
-                        scope.config.data.sub.push({name:"子指标1"});
-                    }
-                    scope.ifClose();//关闭窗口
-                };
-                element.on("click",function(e){
-                    e.stopPropagation();
-                });
+                deal.apply(scope,Array.prototype.slice.call(arguments).slice(1));
             }
         }        
+    }).directive("linkState",function(){
+        return {
+            restrict:"A",
+            link:function(scope,element,attr){
+                scope.local = {title:[],link:[],ext:true};//0表示非可见,ext true 表示开锁，可以编辑
+                element.on("click",function(e){
+                    if(e.target.className == "pencil" || e.target.tagName.toLowerCase() == "input"){
+                        return;
+                    }
+                    scope.$apply(function(){
+                        scope.local.title = [];
+                        scope.local.link = [];
+                    });
+                });
+
+            }
+        }
+    }).directive("tabViewConfig",function(){
+            
+            return {
+                restrict:"A",
+                link:function(scope,element,attr){
+                    scope.colorChoose = function(e,index){
+                        scope.select.choosed.color = index;
+                        scope.select.choosed.colorval=scope.select.colors[index];
+                        $(e.target).css({borderColor:scope.select.colors[index],"boxShadow":"0 0 2px "+ scope.select.colors[index]});
+                        $(e.target).siblings().css({"border":"2px solid white","boxShadow":""});
+                        $(e.target).html("√");
+                        $(e.target).siblings().empty();
+                    }        
+                }
+            };
+
     });
 });

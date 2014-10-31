@@ -1,0 +1,87 @@
+/***
+    配置面板中得 【数据指标】面板的样式
+***/
+.main_figure_btn{
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #358ee7;
+    color:white;
+    box-sizing:border-box;
+}
+.main_figure_btn:hover,.pre_btn:hover{
+    background-color: #a4cdf5;
+    color:#1d8ae6;
+}
+.sub_figure_btn{/**子指标***/
+    position: relative;
+    display: inline-block;
+    top:12px;
+    width: 30%;
+}
+.main_figure{/**主指标***/
+    position: relative;
+    margin:0 auto;
+    width: 80%;
+    height: 30px;
+}
+.main_figure input[type="text"]{
+    position: relative;
+    height: 30px;
+    width: 60%;
+    margin: 0;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+.btn_edit{/**编辑删除按钮***/
+    position:relative;
+    height: 30;
+    width: 50px;
+    top:1px;
+    left:-4px;
+    line-height: 28px;
+    background-color: #358ee7;
+    cursor:pointer;
+}
+
+ul.sub_figure{
+    position: relative;
+    top:8px;
+    padding-left:63px;
+}
+
+ul.sub_figure li input[type="text"]{
+    width: 50%;
+}
+
+.btn_add{
+    width: 45%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color:white;
+    background-color: #358ee7;
+}
+.btn_add:hover{
+    background:#7fb0f3;
+    color:#135279;
+    border-color: white;
+    transition:border-color,color 0.2s ease; 
+}
+div.config_data_panel{/***一个指标配置块，包括主指标，子指标***/
+    position: relative;
+    width: 90%;
+    margin:0 auto;
+    height: 80%;
+    top:10%;
+    text-align: center;
+    overflow-y: auto;
+}
+div.config_data_split{
+    height: 200px;
+    border:1px dashed #ccc;
+    border-width:0 0 1px 0;
+}

@@ -1,0 +1,38 @@
+.combox_dim{
+    width:120px;
+    height: 30px;
+}
+.combox_dim_btn{
+    font-size: 12px;
+    line-height: 10px;
+    color:#333;
+    width:110px;
+    height: 24px;
+    background-color: #ebebeb;
+    border-radius: 15px;
+    text-align: left;
+}
+.combox_dim_btn:hover{
+    background-color: #f6f6f6;
+    color:#999;
+}
+ul.combox_drop_down{
+    left:15px;
+    top:23px;
+    min-width: 100px;
+    width:100px!important;
+}
+.combox_option{
+    width:100px!important;
+    padding-left: 10px;
+    cursor: pointer;
+    height: 27px;
+}
+.combox_option:hover{
+    background-color: rgba(211, 217, 222, 0.53);
+}
+.select_arrow{
+    position: absolute;
+    top:40%;
+    right:10px;
+}

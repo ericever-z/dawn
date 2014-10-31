@@ -3,7 +3,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: #fbfff0; 
+/*    background-color: #fdfff8; */
 }
 .config_box{
     margin-top:5px;
@@ -17,7 +17,7 @@
     position: relative;
     width:50%;
     height: 100%;
-    border-right: 1px solid #18896f;
+    border-right: 1px solid #358ee7;
 }
 p.tip_style{
     position: relative;
@@ -25,23 +25,11 @@ p.tip_style{
     line-height: 35px;
     padding: 0 5px;
     width:99%;
-    color:#18896f;
+/*    color:#18896f;*/
+    color:#358ee7;
     font-size:14px;
 }
-.com_preview{
-    width:50%;
-    height: 100%;
-    float: right;
-    position: relative;
-/*     background-color: #bfd7ec; */
-}
-.preview_box{
-    position: relative;
-    width: 100%;
-    margin:0 2px;
-    height: 91%;
-  
-}
+
 ul.config_tab{
     position: relative;
     top:20px;
@@ -54,7 +42,8 @@ ul.config_tab li{
     margin-right:2px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    border:2px solid #18896f;
+/*    border:2px solid #18896f;*/
+    border:1px solid #358ee7;
 /*    #3f9320;*/
     border-bottom: none;
   line-height: 40px;
@@ -62,12 +51,15 @@ ul.config_tab li{
   text-align: center;
     z-index: 20;
     cursor: pointer;
-    background-color: #fbfff0; 
+/*    background-color: #fbfff0; */
+    background-color:white;
+    color:#358ee7;
 }
 ul.config_tab li:hover{
 /*    background-color: rgb(53, 114, 167);*/
-    background-color: rgba(24, 137, 111, 0.4);
-    color:white;
+/*    background-color: rgba(24, 137, 111, 0.4);*/
+    background-color:#efefef;
+    color:black;
     font-weight: bold;
 }
 .config_tab_state{
@@ -75,59 +67,16 @@ ul.config_tab li:hover{
     position: relative;
     width: 100%;
     height: 82%;
-    border:1px solid #18896f;
+    border:1px solid #358ee7;
+    border-right: 0;
     border-bottom:none;
-/*        #205e93;*/
-/*    background-color: #d3eafc;*/
-/*    background-color: rgba(24, 137, 111, 0.2);*/
+    background-color:#efefef;
+    overflow-y: auto;
 }
 ul.config_tab li.tab_hiLight{
     height: 45px;
     line-height: 45px;
-/*    background-color: #d3eafc;*/
-/*    background-color: rgba(24, 137, 111, 0.2);*/
-}
-.preview_inner_box{
-    position: absolute;
-    width: 100%;
-    min-height:200px; 
-    text-align: center;
-    top:40%;
-    margin-top:-100px;
-    
-}
-.preview_inner_box span{
-    position: relative;
-    display: inline-block;
-    height: 80px;
-    line-height: 80px;
-    min-width: 85%;
-    font-size: 72px;
-    font-family: digit;
-    letter-spacing: 4px;
-    background-color:white;
-    border-radius: 3px;
-}
-.btn_add{
-    width: 50%;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    border:1px solid #1f639d;
-    color:white;
-    background-color: #18896f;
-}
-.btn_add:hover{
-    background:#53739f;
-    color:white;
-    border-color: white;
-    transition:border-color,color 0.2s ease; 
-}
-div.config_data_panel{
-    position: relative;
-    width: 100%;
-    height: 90%;
-    top:10%;text-align: center;
+    background-color:#efefef;
 }
 .iframe_cover{
     top:0;
@@ -148,7 +97,7 @@ div.config_data_panel{
     background-color: #fff;
     border-radius: 4px;
     z-index: 200;
-    border:1px solid #80bef4;
+    border:1px solid #358ee7;
     box-shadow: 2px 2px 0 #4d4c4c;
     text-align: center;
     box-sizing: border-box;
@@ -173,65 +122,8 @@ div.config_data_panel{
     background-color: #a3caeb;
     color:#3c6290;
 }
-.main_figure{/**主指标***/
-    position: relative;
-    margin:0 auto;
-    width: 80%;
-    height: 30px;
-}
-.main_figure input[type="text"]{
-    height: 100%;
-    width: 60%;
-    margin: 0;
-    padding: 0 5px;
-    box-sizing: border-box;
-}
-.main_figure_btn{
-    position: relative;
-    display: inline-block;
-    width: 15%;
-    height: 30px;
-    left:-4.5px;
-    top:2px;
-    cursor: pointer;
-    background-color: #ade355;
-    color:#16521b;
-    border:1px solid #317df7;
-    box-sizing:border-box;
-}
-.main_figure_btn:hover,.pre_btn:hover{
-    background-color: #108edd;
-    color:white;
-}
-.sub_figure_btn{/**子指标***/
-    position: relative;
-    display: inline-block;
-    top:20px;
-    width: 30%;
-}
-ul.sub_figure{
-    position: relative;
-    top:10px;
-}
-ul.sub_figure li{
-    position: relative;
-    padding: 0;
-    width: 70%;
-    height: 30px;
-    margin: 2px 0;
-    left:16.5%;
-    text-align: right;
-}
-ul.sub_figure li input[type="text"]{
-    position: relative;
-    height: 30px;
-    width: 50%;
-}
-ul.sub_figure li span{
-    width: 58px;
-    text-align: center;
-    height: 30px;
-}
+
+
 .pre_btn{
     position: relative;
     width: 110px;
@@ -242,6 +134,11 @@ ul.sub_figure li span{
     margin:0 10px;
     transition: background-color 0.2s;
 }
-
-
-/**#18896f*/
+/****一下测试使用****/
+.test_ok{
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    height: 40px;
+    background-color: red;
+}

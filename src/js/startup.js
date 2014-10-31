@@ -3,6 +3,8 @@ require(['./config'],function(){
              'angular-ui',
              './controllers/MainCtrl',
              './directives/MainDirective',
+             './directives/cell',
+             './directives/angular.rangeSlider',
              './directives/flipper',
              './filters/utility',
              './services/DialogService'],function($,angular){
@@ -13,7 +15,7 @@ require(['./config'],function(){
                                          'dt.dawn.filter',
                                          'ui.bootstrap']);
         app.config(['$routeProvider',function($routeProvider){
-            $routeProvider.when('/',{// 
+            $routeProvider.when('/default',{// 
                 templateUrl:'../../html/partials/choose.html',
                 controller:'DefaultCtrl'
             }).
@@ -30,7 +32,7 @@ require(['./config'],function(){
                 controller:'ExtCtrl'  //上面的itemId 会在这个controller里面使用到，$routeParams.itemId
             }).             
             otherwise({//else
-                redirectTo:'/',
+                redirectTo:'/default',
             });
         }]);
         angular.bootstrap(document,["app"]);
