@@ -1,5 +1,5 @@
 require.config({
-    //urlArgs:"rnd="+(new Date()).getTime(),
+    urlArgs:"rnd="+(new Date()).getTime(),
     paths:{
         "jquery":"../../lib/jquery/jquery.min",
         "angular":"../../lib/angular/angular.min",
