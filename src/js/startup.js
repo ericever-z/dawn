@@ -17,11 +17,11 @@ require(['./config'],function(){
                                          'ui.bootstrap']);
         app.config(['$routeProvider',function($routeProvider){
             $routeProvider.when('/default',{// 
-                templateUrl:'../../html/partials/choose.html',
+                templateUrl:'../../html/partials/choose.vm',
                 controller:'DefaultCtrl'
             }).
             when('/free',{//自由组织数据
-                templateUrl:'../../html/partials/free.html',
+                templateUrl:'../../html/partials/free.vm',
                 controller:'FreeCtrl'  //上面的itemId 会在这个controller里面使用到，$routeParams.itemId
                 /***
                 例如：http://127.0.0.1:53791/html/index.html#/details/8
@@ -29,7 +29,7 @@ require(['./config'],function(){
                 **/
             }). 
             when('/ext',{//外部页面URL
-                templateUrl:'../../html/partials/world.html',
+                templateUrl:'../../html/partials/world.vm',
                 controller:'ExtCtrl'  //上面的itemId 会在这个controller里面使用到，$routeParams.itemId
             }).             
             otherwise({//else
