@@ -1,0 +1,21 @@
+{
+  "requirejs" : {
+  	  "configFile" : "src/js/config.js",
+      "modules":[{"name":"startup"}]
+  },
+  "src" : {
+  	"jsPath" : "src/js",
+  	"cssPath" : "src/css",
+  	"cssFiles" : ["pages/*.css"],
+    "font" : "src/css/font"
+  },
+  "build" : {
+  	"jsPath" : "build/js",
+  	"cssPath" : "build/css",
+    "font":  "build/css/font"
+  },
+  "clean" : {
+  	"js" : ["build/js/controllers", "build/js/build.txt",
+					"build/js/directives", "build/js/filters", "build/js/services", "build/js/config.js"]
+  }
+}

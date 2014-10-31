@@ -134,52 +134,17 @@ module.directive("cellBar",function(){//可以resize的方格块
         }        
     }).directive("iframePanel",function(){
         function deal(element,attrs){
-            this.edit = function(name,idx){
-                    //$event.stopPropagation();
-                    this.local[name][idx] = idx;
-            };
-            this.addLink = function(){
-                //$event.stopPropagation();
-                scope.linkdata.push({title:"",link:""});
-            };
-            this.up = function(idx){
-                var tmp = this.linkdata[idx-1];
-                if(tmp){
-                    this.linkdata[idx-1] = this.linkdata[idx];
-                    this.linkdata[idx] = tmp; 
-                }
-            };
-            this.down = function(idx){
-                var tmp = scope.linkdata[idx+1];
-                if(tmp){
-                    this.linkdata[idx+1] = this.linkdata[idx];
-                    this.linkdata[idx] = tmp;
-                }
-            };
-            this.clear = function(idx){
-                this.linkdata.splice(idx,1);
-            };
-            this.clearExt = function(){
-                this.extLink.link = "";
-            };
-            this.toggleExt = function(){
-                this.local.ext = !scope.local.ext;
-                if(!this.local.ext){
-                    $(".ext_wrapper input[type='text']").attr("readonly","true");
-                }else{
-                    $(".ext_wrapper input[type='text']").removeAttr("readonly");
-                }
-            }; 
+            var me=this; 
             this.ifClose = function(){
-                this.tab.iframe = 0;//关闭iframe的窗口           
+                me.tab.iframe = 0;//关闭iframe的窗口           
             };
             this.confirm = function(){
-                if(this.tab.iframe == 1){
-                    this.config.data.main = {name:"主指标1"};
-                }else if(this.tab.iframe == 2){
-                    this.config.data.sub.push({name:"子指标1"});
+                if(me.tab.iframe == 1){
+                    me.config.data.main = {name:"主指标1"};
+                }else if(me.tab.iframe == 2){
+                    me.config.data.sub.push({name:"子指标1"});
                 }
-                this.ifClose();//关闭窗口
+                me.ifClose();//关闭窗口
             };  
             element.on("click",function(e){
                     e.stopPropagation();
@@ -192,12 +157,55 @@ module.directive("cellBar",function(){//可以resize的方格块
             }
         }        
     }).directive("linkState",function(){
+        function deal(element,attrs){
+            var me = this;
+            this.local = {title:[],link:[],ext:true};//0表示非可见,ext true 表示开锁，可以编辑
+            this.edit = function(name,idx){
+                    //$event.stopPropagation();
+                    me.local[name][idx] = idx;
+            };
+            this.addLink = function(){
+                //$event.stopPropagation();
+                me.linkdata.push({title:"",link:""});
+            };
+            this.up = function(idx){
+                var tmp = me.linkdata[idx-1];
+                if(tmp){
+                    me.linkdata[idx-1] = me.linkdata[idx];
+                    me.linkdata[idx] = tmp; 
+                }
+            };
+            this.down = function(idx){
+                var tmp = me.linkdata[idx+1];
+                if(tmp){
+                    me.linkdata[idx+1] = me.linkdata[idx];
+                    me.linkdata[idx] = tmp;
+                }
+            };            
+            this.clear = function(idx){
+                me.linkdata.splice(idx,1);
+            };
+            this.clearExt = function(){
+                me.extLink.link = "";
+            };
+            this.toggleExt = function(){//解锁，开锁
+                me.local.ext = !me.local.ext;
+                if(!me.local.ext){
+                    $(".ext_wrapper input[type='text']").attr({"readonly":"true","tabIndex":"-1"});
+                }else{
+                    $(".ext_wrapper input[type='text']").removeAttr("readonly");
+                    $(".ext_wrapper input[type='text']").removeAttr("tabIndex");
+                }
+            };            
+        }
         return {
             restrict:"A",
             link:function(scope,element,attr){
-                scope.local = {title:[],link:[],ext:true};//0表示非可见,ext true 表示开锁，可以编辑
+                deal.apply(scope,Array.prototype.slice.call(arguments).slice(1));
                 element.on("click",function(e){
                     if(e.target.className == "pencil" || e.target.tagName.toLowerCase() == "input"){
+                        e.preventDefault();
+                        e.stopPropagation();
                         return;
                     }
                     scope.$apply(function(){

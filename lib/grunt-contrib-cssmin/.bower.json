@@ -1,0 +1,15 @@
+{
+  "name": "grunt-contrib-cssmin",
+  "homepage": "https://github.com/gruntjs/grunt-contrib-cssmin",
+  "version": "0.10.0",
+  "_release": "0.10.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.10.0",
+    "commit": "9dfad873eb4cec3ed3fb3225986db3cfef7f35cc"
+  },
+  "_source": "git://github.com/gruntjs/grunt-contrib-cssmin.git",
+  "_target": "~0.10.0",
+  "_originalSource": "grunt-contrib-cssmin",
+  "_direct": true
+}

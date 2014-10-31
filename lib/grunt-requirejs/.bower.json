@@ -1,0 +1,15 @@
+{
+  "name": "grunt-requirejs",
+  "homepage": "https://github.com/asciidisco/grunt-requirejs",
+  "version": "0.3.1",
+  "_release": "0.3.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.1",
+    "commit": "f519fbc9b5a45af6ecf411642b529d2f795279c2"
+  },
+  "_source": "git://github.com/asciidisco/grunt-requirejs.git",
+  "_target": "~0.3.1",
+  "_originalSource": "grunt-requirejs",
+  "_direct": true
+}

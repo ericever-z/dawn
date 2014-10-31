@@ -1,0 +1,306 @@
+<!--galler页面  start--->
+<span class="dia_container" ng-if="active.state==-1">
+	<span class="dia_head">
+		<span class="dia_head_title">
+			组件面板
+		</span>
+		<span class="dia_head_close" ng-click="cancel()">
+		</span>
+	</span>
+	<span class="gallery" tracker-list>
+		<span class="dia_more moreLeft">
+		</span>
+		<ul class="tracks">
+			<li ng-repeat="sc in coms" ng-mouseenter="showPreview($event,sc)">
+				<img ng-src="{{sc.img}}" width="140" height="110">
+				<span class="com_title">
+					{{sc.name}}
+				</span>
+			</li>
+		</ul>
+		<span class="dia_more moreRight">
+		</span>
+	</span>
+	<span class="showcase" id="showcase">
+		<span class="cell_arrow showcase_arrow" id="arrow">
+		</span>
+		<ul class="dia_sub" ng-repeat="item in coms track by $index" ng-if="active.hover==$index">
+			<li ng-repeat="sub in item.subs" select-item>
+				<img ng-src="{{sub.img}}" width="220" height="150">
+				<span class="type_cover">
+					请选择
+				</span>
+			</li>
+		</ul>
+	</span>
+</span>
+<!--galler页面  end--->
+<span class="state_0" flip-state ng-if="active.state!=-1">
+	<span class="dia_head">
+		<span class="dia_head_title">
+            {{coms[active.state].name}}配置面板
+		</span>
+		<span class="dia_head_close" ng-click="cancel()">
+		</span>
+	</span>
+    <!--翻牌器配置 start-->
+	<span class="config_box" ng-if="active.state==0 || active.state==3">
+		<span class="config_panel">
+			<p class="tip_style">
+				数据设置
+			</p>
+			<ul class="config_tab">
+				<li ng-repeat="item in cofData track by $index" ng-class="{tab_hiLight:cofData.indexOf(item)==tab.active}"
+				ng-click="changeState($index)">
+					{{item.name}}
+				</li>
+			</ul>
+			<span class="config_tab_state" ng-switch on="tab.active">
+				<div ng-switch-when="0" class="config_data_panel" ng-class="{config_data_split:active.state==3}" config-panel>
+					<button class="btn_add" ng-if="!config.data.main" id="main_figure">
+						+添加主指标
+					</button>
+					<div class="main_figure" ng-if="config.data.main">
+						<input type="text" ng-model="config.data.main.name" readonly>
+						<span class="btn_edit" ng-click="editMain()">
+							编辑
+						</span>
+						<span class="btn_edit" ng-click="removeMain()">
+							删除
+						</span>
+					</div>
+					<ul ng-if="config.data.sub.length>0" class="sub_figure">
+						<li ng-repeat="f in config.data.sub" class="main_figure">
+                            <input type="text" ng-model="f.name" readonly>
+                            <span class="btn_edit" ng-click="editSub(f)">
+                                编辑
+                            </span>
+                            <span class="btn_edit" ng-click="removeSub(f)">
+                                删除
+                            </span>
+						</li>
+					</ul>
+					<button ng-if="config.data.main" class="btn_add sub_figure_btn" id="sub_figure">
+						+添加小指标
+					</button>
+				</div>
+				<div ng-switch-when="1" tab-view-config>
+                    <div class="view_style">
+                        <p>展示样式设置</p>
+                        <div class="view_style_row" ng-if="active.state==3">
+                            <label>区块名称:</label>
+                            <input type="text" ng-model="active.name[active.state]">
+                        </div>
+                        <div class="view_style_row" ng-if="active.state==3">
+                            <label>快捷指标模块:</label>
+                            <div class="btn-group combox_dim" dropdown ng-cloak>
+                                <button class="btn  btn-primary dropdown-toggle combox_dim_btn" ng-disabled="disabled">
+                                    快捷指标模块 <span class="caret select_arrow"></span>
+                                </button>
+                                <ul class="dropdown-menu combox_drop_down" role="menu">
+                                    <li class="combox_option" >快捷指标模块</li>
+                                    <li class="combox_option" >快捷指标列表</li>
+                                    <li class="combox_option">快捷指标趋势</li>
+                                </ul>
+                            </div>
+                        </div>                        
+                        <div class="view_style_row" ng-if="active.state==0">
+                            <label>样式选择:</label>
+                            <div class="btn-group combox_dim" dropdown ng-cloak>
+                                <button class="btn  btn-primary dropdown-toggle combox_dim_btn" ng-disabled="disabled">
+                                    {{select.flip[select.choosed.flip].name}} 
+                                    <span class="caret select_arrow"></span>
+                                </button>
+                                <ul class="dropdown-menu combox_drop_down" role="menu">
+                                    <li class="combox_option" ng-repeat="flip in select.flip track by $index" 
+                                                              ng-click="select.selected.flip=$index">
+                                        {{flip.name}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="view_style_row" ng-if="active.state==0">
+                            <label>前置标签:</label>
+                            <div class="btn-group combox_dim" dropdown ng-cloak>
+                                <button class="btn  btn-primary dropdown-toggle combox_dim_btn" ng-disabled="disabled">
+                                    {{select.unit[select.choosed.unit].sym||'无'}} 
+                                    <span class="caret select_arrow"></span>
+                                </button>
+                                <ul class="dropdown-menu combox_drop_down" role="menu">
+                                    <li class="combox_option" ng-repeat="u in select.unit track by $index" ng-click="select.choosed.unit=$index">
+                                        {{u.sym}}
+                                    </li>
+                                </ul>
+                            </div>                            
+                            <label>后置单位:</label><input type="text" ng-model="select.unit_text">
+                        </div>
+                        <div class="view_style_row">
+                            <label>颜色选择:</label>
+                            <ul class="color_list">
+                                <li ng-repeat="co in select.colors track by $index" 
+                                    ng-style="{'background-color':'{{co}}'}" 
+                                    ng-click="colorChoose($event,$index)" >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="view_style">
+                        <p>数据刷新设置</p>
+                        <div class="view_style_row">
+                            <label>刷新频率:</label>
+                            <div class="btn-group combox_dim" dropdown ng-cloak>
+                                <button class="btn  btn-primary dropdown-toggle combox_dim_btn" ng-disabled="disabled">
+                                    {{select.fre[select.choosed.fre]}}秒 
+                                    <span class="caret select_arrow"></span>
+                                </button>
+                                <ul class="dropdown-menu combox_drop_down" role="menu">
+                                    <li class="combox_option" ng-repeat="t in select.fre track by $index" ng-click="select.choosed.fre=$index">
+                                        {{t}}秒
+                                    </li>
+                                </ul>
+                            </div>                            
+                        </div>
+                    </div>                    
+				</div>
+			</span>
+		</span>
+		<div class="iframe_cover" ng-if="tab.iframe!=0" iframe-panel>
+			<div class="iframe_box">
+				<div class="dia_head">
+					<span class="dia_head_title">
+						设计您的区块-{{coms[active.state].name}}
+					</span>
+					<span class="dia_head_close" ng-click="ifClose()">
+					</span>
+				</div>
+				<iframe src="javascript:void(0);" width="100%" height="93%" frameborder="0"
+				name="km" id="km">
+				</iframe>
+                <!---->
+                <div class="test_ok">
+                <button ng-click="confirm()">确定</button>
+                <!---->
+            </div>
+			</div>
+		</div>
+		<span class="com_preview">
+			<p class="tip_style">
+				图形预览
+			</p>
+			<span class="preview_box">
+                <div class="pre_head">
+                    <label>{{active.name[active.state]}}</label>
+                    <span>2014-12-18</span>
+                </div>               
+				<div class="preview_inner_box" ng-if="active.state==0">
+                    <span class="unit">
+                        {{select.unit[select.choosed.unit].sym}}
+                    </span>
+					<span flipper="8888888" class="figure_value" style="color:{{select.choosed.colorval}}}"></span>
+                    <span class="unit">{{select.unit_text}}</span>
+				</div>
+				<div class="preview_inner_box" ng-if="active.state==3">
+                    <ul class="pre_exp_figure">
+                        <li>
+                            <label class="exp_title">指标名称指标名称</label>
+                            <span class="exp_value" >30,000,000</span>
+                            <div class="pre_exp_sub">
+                                <span class="sub_title">周同比</span>
+                                <span class="pre_exp_bull">
+                                    <span>+999,9990</span>
+                                    <span class="arrow_up"></span>
+                                </span>
+                            </div>
+                            <div class="pre_exp_sub">
+                                <span class="sub_title">日环比</span>
+                                <span class="pre_exp_bear">
+                                    <span>+999,9990</span>
+                                    <span class="arrow_down"></span>
+                                </span>
+                            </div>                        
+                        </li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+				</div>                 
+                <div class="pre_sub_box" ng-if="active.state==0">
+                    <ul>
+                        <li ng-repeat="item in testdata">
+                            <span class="pre_sub_title">{{item.title}}</span>
+                            <span class="pre_sub_value">{{item.value|number}}</span>
+                        </li>
+                    </ul>
+                    <span class="pre_aside">+200,000</span>
+                </div>    
+               
+			</span>
+            <div class="btn_back_save_wrapper">
+                <button class=" main_figure_btn" ng-click="back(active.state)">
+					上一步
+				</button>
+				<button class="main_figure_btn" ng-click="ok(active.state)">
+					保存
+				</button>
+            </div>
+		</span>
+	</span>
+<!--翻牌器配置 end-->
+    <!--文字链配置 start  外部功能模块-->
+	<span class="config_box" ng-if="active.state==4||active.state==6" link-state>
+        <div class="link_model_title">区块标题:&nbsp;<input type="text" ng-model="active.name[active.state]" id="stateName"></div>
+        <div ng-if="active.state==4">
+            <button class="link_model_add_btn" ng-click="addLink()">+ 新增文字链接</button>
+        </div>
+        <div class="link_table_wrapper" ng-if="active.state==4">
+            <table class="link_model_table" ng-cloak>
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <td>链接文字</td>
+                        <td>链接地址</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+            <tbody>
+                <tr ng-repeat="ln in linkdata track by $index">
+                    <td><span class="pencil" ng-click="edit('title',$index)"></span>
+                        <span ng-if="local.title[$index] == undefined" ng-click="edit('title',$index)">{{ln.title}}</span>
+                        <input type="text" ng-model="ln.title" class="link_input_style" ng-if="local.title[$index]==$index">
+                    </td>
+                    <td><span class="pencil" ng-click="edit('link',$index)"></span>
+                        <span ng-if="local.link[$index]==undefined" ng-click="edit('link',$index)">{{ln.link}}</span>
+                        <input type="text" ng-model="ln.link" ng-model="input.link" ng-if="local.link[$index]==$index" class="link_input_style"></inout>
+                    </td>
+                    <td class="td_action">
+                        <span class="link_trash link_up" ng-click="up($index)"></span>
+                        <span class="link_trash link_down" ng-click="down($index)"></span>
+                        <span class="link_trash" ng-click="clear($index)"></span>
+                    </td>
+                </tr>
+            </tbody>
+            </table>  
+        </div>
+        <div class="ext_link" ng-if="active.state==6">
+            <div class="ext_wrapper">
+                <span>模块链接:</span>
+                <span class="ext_trash" ng-click="clearExt()"></span>
+                <input type="text" ng-model="extLink.link" class="ext_input" id="extLink">
+                <span class="ext_lock" ng-click="toggleExt()" ng-class="{ext_lock_up:local.ext==false}"></span>
+            </div>
+        </div>
+        <div class="link_model_tail">
+            <button class="main_figure_btn" ng-click="back(active.state)">
+                上一步
+            </button>
+            <button class="main_figure_btn" ng-click="ok(active.state)">
+                保存
+            </button>
+        </div>          
+	</span>
+<!--文字链配置 end-->
+<!--饼状图配置 start---->
+<span class="config_box" ng-if="active.state==1">
+</span>
+<!--饼状图配置 end---->
+</span>

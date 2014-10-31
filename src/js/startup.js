@@ -1,13 +1,13 @@
 require(['./config'],function(){
-    require(['jquery','angular','angular-route',//这个里面引入的地址是现对于当前这个js的
+    require(['jquery','angular',
+             'angular-route',//这个里面引入的地址是现对于当前这个js的
              'angular-ui',
              './controllers/MainCtrl',
              './directives/MainDirective',
-             './directives/cell',
-             './directives/angular.rangeSlider',
              './directives/flipper',
              './filters/utility',
-             './services/DialogService'],function($,angular){
+             './services/DialogService',
+             './services/HttpService'],function($,angular){
         var app = angular.module("app",['ngRoute',
                                         'dt.dawn.controller',
                                         'dt.dawn.directive',
